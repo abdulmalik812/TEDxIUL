@@ -1,3 +1,4 @@
+// Original Prototype by Abdul Malik (@abdulmalik812)
 // ── 3D TESSELLATION CANVAS ──
 const canvas = document.getElementById('heroCanvas');
 const ctx = canvas.getContext('2d');
@@ -149,8 +150,8 @@ function animate() {
   // Subtle nebula blobs
   if (frame % 3 === 0) {
     [[W * 0.2, H * 0.3, 'rgba(230,43,30,0.025)'],
-     [W * 0.8, H * 0.7, 'rgba(107,63,160,0.03)'],
-     [W * 0.6, H * 0.2, 'rgba(45,107,228,0.02)']].forEach(([x, y, c]) => {
+    [W * 0.8, H * 0.7, 'rgba(107,63,160,0.03)'],
+    [W * 0.6, H * 0.2, 'rgba(45,107,228,0.02)']].forEach(([x, y, c]) => {
       const g = ctx.createRadialGradient(x, y, 0, x, y, W * 0.3);
       g.addColorStop(0, c); g.addColorStop(1, 'transparent');
       ctx.beginPath(); ctx.arc(x, y, W * 0.3, 0, Math.PI * 2);
@@ -196,8 +197,8 @@ function tick() {
   const diff = eventDate - Date.now();
   if (diff <= 0) return;
   const pad = n => String(Math.floor(n)).padStart(2, '0');
-  document.getElementById('days').textContent    = pad(diff / 86400000);
-  document.getElementById('hours').textContent   = pad((diff % 86400000) / 3600000);
+  document.getElementById('days').textContent = pad(diff / 86400000);
+  document.getElementById('hours').textContent = pad((diff % 86400000) / 3600000);
   document.getElementById('minutes').textContent = pad((diff % 3600000) / 60000);
   document.getElementById('seconds').textContent = pad((diff % 60000) / 1000);
 }

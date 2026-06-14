@@ -1,235 +1,402 @@
+<!--
+Original prototype by Abdul Malik (@abdulmalik812)
+-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TEDxIntegralUniversity – TESSELLATION</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEDxIntegralUniversity – TESSELLATION</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <a class="nav-brand" href="#">
-    <svg class="nav-logo" viewBox="0 0 320 36" xmlns="http://www.w3.org/2000/svg">
-      <!-- TED -->
-      <text x="0" y="28" font-family="'Bebas Neue', sans-serif" font-size="32" font-weight="400" fill="#E62B1E" letter-spacing="2">TED</text>
-      <!-- x (superscript) -->
-      <text x="62" y="18" font-family="'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#E62B1E">x</text>
-      <!-- Integral University -->
-      <text x="76" y="26" font-family="'DM Sans', sans-serif" font-size="14" font-weight="400" fill="#F5F0EA" letter-spacing="1.2">Integral University</text>
-    </svg>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#schedule">Schedule</a></li>
-    <li><a href="#speakers">Speakers</a></li>
-    <li><a href="#sponsors">Sponsors</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="#contact" class="btn-ticket">Get Ticket</a>
-</nav>
+  <!-- NAVBAR -->
+  <nav>
+    <a class="nav-brand" href="#">
+      <svg class="nav-logo" viewBox="0 0 320 36" xmlns="http://www.w3.org/2000/svg">
+        <!-- TED -->
+        <text x="0" y="28" font-family="'Bebas Neue', sans-serif" font-size="32" font-weight="400" fill="#E62B1E"
+          letter-spacing="2">TED</text>
+        <!-- x (superscript) -->
+        <text x="62" y="18" font-family="'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#E62B1E">x</text>
+        <!-- Integral University -->
+        <text x="76" y="26" font-family="'DM Sans', sans-serif" font-size="14" font-weight="400" fill="#F5F0EA"
+          letter-spacing="1.2">Integral University</text>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#speakers">Speakers</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn-ticket">Get Ticket</a>
+  </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <canvas id="heroCanvas"></canvas>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-logo-row">
-      <span class="hl-ted">TED</span><span class="hl-x">x</span><span class="hl-org">Integral University</span>
-    </div>
-    <p class="hl-tagline">x = independently organized TED event</p>
-    <h1 class="hero-title">TESSELLATION</h1>
-    <p class="hero-sub">From Individual Ideas to Collective Impact</p>
-    <p class="hero-date">September, 2026</p>
-    <div class="hero-line"></div>
-    <p class="hero-desc">Where individual pieces come together to form something greater. Join us as we explore how connected ideas, people, and perspectives create collective transformation.</p>
-    <div class="hero-ctas">
-      <a href="#contact" class="btn-primary">Get Your Ticket</a>
-      <a href="#about" class="btn-outline">Explore Theme</a>
-    </div>
-  </div>
-  <div class="scroll-hint">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    Scroll
-  </div>
-</section>
-
-<!-- COUNTDOWN -->
-<section id="countdown">
-  <p class="section-label fade-in">Mark Your Calendar</p>
-  <h2 class="section-title fade-in">THE <span class="accent">COUNTDOWN</span></h2>
-  <p class="cd-sub fade-in">Something extraordinary is about to happen</p>
-  <div class="cd-grid fade-in">
-    <div class="cd-item"><div class="cd-num" id="days">00</div><div class="cd-lbl">Days</div></div>
-    <div class="cd-sep">:</div>
-    <div class="cd-item"><div class="cd-num" id="hours">00</div><div class="cd-lbl">Hours</div></div>
-    <div class="cd-sep">:</div>
-    <div class="cd-item"><div class="cd-num" id="minutes">00</div><div class="cd-lbl">Minutes</div></div>
-    <div class="cd-sep">:</div>
-    <div class="cd-item"><div class="cd-num" id="seconds">00</div><div class="cd-lbl">Seconds</div></div>
-  </div>
-</section>
-
-<!-- TICKETS -->
-<section id="tickets">
-  <p class="section-label fade-in">Secure Your Spot</p>
-  <h2 class="section-title fade-in">EVENT <span class="accent">TICKETS</span></h2>
-  <p class="tickets-sub fade-in">Choose your pass and be part of something extraordinary</p>
-  <div class="tickets-grid">
-    <div class="ticket-card early-bird">
-      <div class="ticket-ribbon">Limited Offer</div>
-      <div class="ticket-header">
-        <div class="ticket-type">Early Bird</div>
-        <div class="ticket-price">₹499</div>
-        <div class="ticket-period">Per Person</div>
+  <!-- HERO -->
+  <section id="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-logo-row">
+        <span class="hl-ted">TED</span><span class="hl-x">x</span><span class="hl-org">Integral University</span>
       </div>
-      <div class="ticket-divider"></div>
-      <ul class="ticket-features">
-        <li><span class="tick">✓</span> Full-day event access</li>
-        <li><span class="tick">✓</span> Welcome kit & goodies</li>
-        <li><span class="tick">✓</span> Lunch & refreshments</li>
-        <li><span class="tick">✓</span> Certificate of participation</li>
-        <li><span class="tick">✓</span> Networking session access</li>
-        <li><span class="tick">✓</span> Priority seating</li>
-      </ul>
-      <a href="#contact" class="btn-primary ticket-btn">Get Early Bird →</a>
-      <p class="ticket-note">Available until August 15, 2026</p>
-    </div>
-    <div class="ticket-card normal">
-      <div class="ticket-header">
-        <div class="ticket-type">Standard</div>
-        <div class="ticket-price">₹799</div>
-        <div class="ticket-period">Per Person</div>
+      <p class="hl-tagline">x = independently organized TED event</p>
+      <h1 class="hero-title">TESSELLATION</h1>
+      <p class="hero-sub">From Individual Ideas to Collective Impact</p>
+      <p class="hero-date">September, 2026</p>
+      <div class="hero-line"></div>
+      <p class="hero-desc">Where individual pieces come together to form something greater. Join us as we explore how
+        connected ideas, people, and perspectives create collective transformation.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Get Your Ticket</a>
+        <a href="#about" class="btn-outline">Explore Theme</a>
       </div>
-      <div class="ticket-divider"></div>
-      <ul class="ticket-features">
-        <li><span class="tick">✓</span> Full-day event access</li>
-        <li><span class="tick">✓</span> Welcome kit & goodies</li>
-        <li><span class="tick">✓</span> Lunch & refreshments</li>
-        <li><span class="tick">✓</span> Certificate of participation</li>
-        <li><span class="tick">✓</span> Networking session access</li>
-        <li class="muted"><span class="tick dim">✗</span> Priority seating</li>
-      </ul>
-      <a href="#contact" class="btn-outline ticket-btn">Get Standard →</a>
-      <p class="ticket-note">Available from August 16, 2026</p>
     </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div>
-    <p class="section-label fade-in">About the Event</p>
-    <h2 class="about-heading fade-in">Where Ideas <em>Tessellate</em> Into Impact</h2>
-    <p class="about-body fade-in">TEDxIntegralUniversity is an independently organized TED event bringing together thinkers, innovators, and storytellers to share ideas worth spreading.</p>
-    <p class="about-body fade-in">Our theme <strong>"TESSELLATION"</strong> — From Individual Ideas to Collective Impact — celebrates how distinct perspectives, when placed together, form a pattern larger and more beautiful than any single piece alone. Like tiles in a mosaic, every voice matters.</p>
-    <a href="#speakers" class="btn-primary fade-in" style="margin-top:20px; display:inline-block;">Meet Our Speakers</a>
-  </div>
-  <div class="fade-in">
-    <div class="about-img-box">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(107,63,160,0.4)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      <span>Image Coming Soon</span>
+    <div class="scroll-hint">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7" />
+      </svg>
+      Scroll
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SCHEDULE -->
-<section id="schedule">
-  <p class="section-label fade-in">Event Schedule</p>
-  <h2 class="section-title fade-in">THE <span class="accent">DAY</span></h2>
-  <div class="timeline">
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">TBD · Entry</div><div class="tl-name">Welcome & Registration</div><div class="tl-desc">Collect your pass and goodies. Meet fellow attendees and start connecting.</div><span class="tl-tag">Entry</span></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">TBD · Opening</div><div class="tl-name">Opening Ceremony</div><div class="tl-desc">Introduction to TEDxIntegralUniversity, the TESSELLATION theme, and the vision behind this edition.</div><span class="tl-tag">Ceremony</span></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">TBD · Talk Block 1</div><div class="tl-name">Talk Block 1</div><div class="tl-desc">Our first set of speakers share ideas on how individual action creates collective change.</div><span class="tl-tag">Talks</span></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">TBD · Break</div><div class="tl-name">Tea Break & Networking</div><div class="tl-desc">Refreshments and open conversation. Connect with speakers and attendees.</div><span class="tl-tag">Break</span></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">TBD · Talk Block 2</div><div class="tl-name">Talk Block 2</div><div class="tl-desc">More transformative ideas from our next set of speakers.</div><span class="tl-tag">Talks</span></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">TBD · Closing</div><div class="tl-name">Closing Ceremony</div><div class="tl-desc">Felicitation, thank you, and the collective mosaic we've built together.</div><span class="tl-tag">Closing</span></div>
-  </div>
-</section>
+  <!-- COUNTDOWN -->
+  <section id="countdown">
+    <p class="section-label fade-in">Mark Your Calendar</p>
+    <h2 class="section-title fade-in">THE <span class="accent">COUNTDOWN</span></h2>
+    <p class="cd-sub fade-in">Something extraordinary is about to happen</p>
+    <div class="cd-grid fade-in">
+      <div class="cd-item">
+        <div class="cd-num" id="days">00</div>
+        <div class="cd-lbl">Days</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-item">
+        <div class="cd-num" id="hours">00</div>
+        <div class="cd-lbl">Hours</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-item">
+        <div class="cd-num" id="minutes">00</div>
+        <div class="cd-lbl">Minutes</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-item">
+        <div class="cd-num" id="seconds">00</div>
+        <div class="cd-lbl">Seconds</div>
+      </div>
+    </div>
+  </section>
 
-<!-- SPEAKERS -->
-<section id="speakers">
-  <p class="section-label fade-in">The Voices</p>
-  <h2 class="section-title fade-in">OUR <span class="accent">SPEAKERS</span></h2>
-  <p style="color:var(--text-muted); font-size:14px; margin-top:10px;" class="fade-in">Meet the incredible thinkers who will share their stories at TEDxIntegralUniversity 2026.</p>
-  <div class="speakers-grid">
-    <div class="sp-card fade-in"><div class="sp-img"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(107,63,160,0.3)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Photo Coming Soon</span></div><div class="sp-info"><div class="sp-tag">Featured Speaker</div><div class="sp-name">Speaker TBA</div><div class="sp-role">Designation · Organisation</div></div></div>
-    <div class="sp-card fade-in"><div class="sp-img"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(107,63,160,0.3)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Photo Coming Soon</span></div><div class="sp-info"><div class="sp-tag">Speaker</div><div class="sp-name">Speaker TBA</div><div class="sp-role">Designation · Organisation</div></div></div>
-    <div class="sp-card fade-in"><div class="sp-img"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(107,63,160,0.3)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Photo Coming Soon</span></div><div class="sp-info"><div class="sp-tag">Speaker</div><div class="sp-name">Speaker TBA</div><div class="sp-role">Designation · Organisation</div></div></div>
-    <div class="sp-card fade-in"><div class="sp-img"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(107,63,160,0.3)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Photo Coming Soon</span></div><div class="sp-info"><div class="sp-tag">Speaker</div><div class="sp-name">Speaker TBA</div><div class="sp-role">Designation · Organisation</div></div></div>
-  </div>
-</section>
+  <!-- TICKETS -->
+  <section id="tickets">
+    <p class="section-label fade-in">Secure Your Spot</p>
+    <h2 class="section-title fade-in">EVENT <span class="accent">TICKETS</span></h2>
+    <p class="tickets-sub fade-in">Choose your pass and be part of something extraordinary</p>
+    <div class="tickets-grid">
+      <div class="ticket-card early-bird">
+        <div class="ticket-ribbon">Limited Offer</div>
+        <div class="ticket-header">
+          <div class="ticket-type">Early Bird</div>
+          <div class="ticket-price">₹499</div>
+          <div class="ticket-period">Per Person</div>
+        </div>
+        <div class="ticket-divider"></div>
+        <ul class="ticket-features">
+          <li><span class="tick">✓</span> Full-day event access</li>
+          <li><span class="tick">✓</span> Welcome kit & goodies</li>
+          <li><span class="tick">✓</span> Lunch & refreshments</li>
+          <li><span class="tick">✓</span> Certificate of participation</li>
+          <li><span class="tick">✓</span> Networking session access</li>
+          <li><span class="tick">✓</span> Priority seating</li>
+        </ul>
+        <a href="#contact" class="btn-primary ticket-btn">Get Early Bird →</a>
+        <p class="ticket-note">Available until August 15, 2026</p>
+      </div>
+      <div class="ticket-card normal">
+        <div class="ticket-header">
+          <div class="ticket-type">Standard</div>
+          <div class="ticket-price">₹799</div>
+          <div class="ticket-period">Per Person</div>
+        </div>
+        <div class="ticket-divider"></div>
+        <ul class="ticket-features">
+          <li><span class="tick">✓</span> Full-day event access</li>
+          <li><span class="tick">✓</span> Welcome kit & goodies</li>
+          <li><span class="tick">✓</span> Lunch & refreshments</li>
+          <li><span class="tick">✓</span> Certificate of participation</li>
+          <li><span class="tick">✓</span> Networking session access</li>
+          <li class="muted"><span class="tick dim">✗</span> Priority seating</li>
+        </ul>
+        <a href="#contact" class="btn-outline ticket-btn">Get Standard →</a>
+        <p class="ticket-note">Available from August 16, 2026</p>
+      </div>
+    </div>
+  </section>
 
-<!-- SPONSORS -->
-<section id="sponsors">
-  <p class="section-label fade-in">Our Partners</p>
-  <h2 class="section-title fade-in">OUR <span class="accent">SPONSORS</span></h2>
-  <p style="color:var(--text-muted); font-size:14px; margin-top:10px;" class="fade-in">Sponsorship opportunities are open. Be part of this movement.</p>
-  <div class="sp-row">
-    <div class="sp-box featured">Integral University</div>
-    <div class="sp-box">Sponsor TBA</div>
-    <div class="sp-box">Sponsor TBA</div>
-    <div class="sp-box">Sponsor TBA</div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-  <p class="section-label fade-in">Got Questions?</p>
-  <h2 class="section-title fade-in">FREQUENTLY <span class="accent">ASKED</span></h2>
-  <div class="faq-list">
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Who can attend TEDxIntegralUniversity? <span class="icon">+</span></button><div class="faq-a">The event is open to students, faculty, professionals, and anyone passionate about ideas. Tickets are available on this website.</div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How can I purchase tickets? <span class="icon">+</span></button><div class="faq-a">Click the "Get Ticket" button and follow the instructions. Pricing and availability will be announced soon.</div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Are there prerequisites to attend? <span class="icon">+</span></button><div class="faq-a">None! Just bring an open mind and curiosity for new ideas.</div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will talks be available online after the event? <span class="icon">+</span></button><div class="faq-a">Yes — recordings will be made available on our YouTube channel after the event.</div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">When and where will TEDxIntegralUniversity 2026 take place? <span class="icon">+</span></button><div class="faq-a">The event will be held at Integral University, Dasauli, Kursi Road, Lucknow, Uttar Pradesh – 226026. Exact date in September 2026 coming soon!</div></div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-inner">
+  <!-- ABOUT -->
+  <section id="about">
     <div>
-      <p class="section-label fade-in">Say Hello</p>
-      <h2 class="contact-heading fade-in">Get In <span class="accent">Touch</span></h2>
-      <p class="contact-sub fade-in">Have a question or want to collaborate? Send us a message.</p>
-      <div class="form-row">
-        <div class="ff"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
-        <div class="ff"><label>Email Address</label><input type="email" placeholder="you@email.com"></div>
-      </div>
-      <div class="ff"><label>Subject</label><input type="text" placeholder="What's this about?"></div>
-      <div class="ff"><label>Message</label><textarea rows="5" placeholder="Your message..."></textarea></div>
-      <button class="btn-primary" style="width:100%; margin-top:4px;">Send Message →</button>
+      <p class="section-label fade-in">About the Event</p>
+      <h2 class="about-heading fade-in">Where Ideas <em>Tessellate</em> Into Impact</h2>
+      <p class="about-body fade-in">TEDxIntegralUniversity is an independently organized TED event bringing together
+        thinkers, innovators, and storytellers to share ideas worth spreading.</p>
+      <p class="about-body fade-in">Our theme <strong>"TESSELLATION"</strong> — From Individual Ideas to Collective
+        Impact — celebrates how distinct perspectives, when placed together, form a pattern larger and more beautiful
+        than any single piece alone. Like tiles in a mosaic, every voice matters.</p>
+      <a href="#speakers" class="btn-primary fade-in" style="margin-top:20px; display:inline-block;">Meet Our
+        Speakers</a>
     </div>
-    <div class="contact-info-col fade-in">
-      <div class="cd-row"><div class="cd-icon">✉</div><div><div class="cd-lbl2">Email Us</div><div class="cd-val">tedx@integraluniversity.ac.in</div></div></div>
-      <div class="cd-row"><div class="cd-icon">📍</div><div><div class="cd-lbl2">Find Us</div><div class="cd-val">Integral University, Dasauli,<br>Kursi Road, Lucknow – 226026</div></div></div>
-      <div class="cd-row"><div class="cd-icon">📞</div><div><div class="cd-lbl2">Call Us</div><div class="cd-val">+91 XXXXX XXXXX</div></div></div>
-      <div class="socials">
-        <a class="soc-btn" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-        <a class="soc-btn" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
-        <a class="soc-btn" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    <div class="fade-in">
+      <div class="about-img-box">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(107,63,160,0.4)" stroke-width="1">
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <circle cx="8.5" cy="8.5" r="1.5" />
+          <path d="M21 15l-5-5L5 21" />
+        </svg>
+        <span>Image Coming Soon</span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-copy">©2026 <span style="color:var(--red)">TEDx</span> Integral University · All Rights Reserved · Independently organized TED event</div>
-  <ul class="footer-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#speakers">Speakers</a></li>
-    <li><a href="#schedule">Schedule</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</footer>
+  <!-- SCHEDULE -->
+  <section id="schedule">
+    <p class="section-label fade-in">Event Schedule</p>
+    <h2 class="section-title fade-in">THE <span class="accent">DAY</span></h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">TBD · Entry</div>
+        <div class="tl-name">Welcome & Registration</div>
+        <div class="tl-desc">Collect your pass and goodies. Meet fellow attendees and start connecting.</div><span
+          class="tl-tag">Entry</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">TBD · Opening</div>
+        <div class="tl-name">Opening Ceremony</div>
+        <div class="tl-desc">Introduction to TEDxIntegralUniversity, the TESSELLATION theme, and the vision behind this
+          edition.</div><span class="tl-tag">Ceremony</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">TBD · Talk Block 1</div>
+        <div class="tl-name">Talk Block 1</div>
+        <div class="tl-desc">Our first set of speakers share ideas on how individual action creates collective change.
+        </div><span class="tl-tag">Talks</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">TBD · Break</div>
+        <div class="tl-name">Tea Break & Networking</div>
+        <div class="tl-desc">Refreshments and open conversation. Connect with speakers and attendees.</div><span
+          class="tl-tag">Break</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">TBD · Talk Block 2</div>
+        <div class="tl-name">Talk Block 2</div>
+        <div class="tl-desc">More transformative ideas from our next set of speakers.</div><span
+          class="tl-tag">Talks</span>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-time">TBD · Closing</div>
+        <div class="tl-name">Closing Ceremony</div>
+        <div class="tl-desc">Felicitation, thank you, and the collective mosaic we've built together.</div><span
+          class="tl-tag">Closing</span>
+      </div>
+    </div>
+  </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="assets/js/main.js"></script>
+  <!-- SPEAKERS -->
+  <section id="speakers">
+    <p class="section-label fade-in">The Voices</p>
+    <h2 class="section-title fade-in">OUR <span class="accent">SPEAKERS</span></h2>
+    <p style="color:var(--text-muted); font-size:14px; margin-top:10px;" class="fade-in">Meet the incredible thinkers
+      who will share their stories at TEDxIntegralUniversity 2026.</p>
+    <div class="speakers-grid">
+      <div class="sp-card fade-in">
+        <div class="sp-img"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(107,63,160,0.3)"
+            stroke-width="1.5">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+          </svg><span>Photo Coming Soon</span></div>
+        <div class="sp-info">
+          <div class="sp-tag">Featured Speaker</div>
+          <div class="sp-name">Speaker TBA</div>
+          <div class="sp-role">Designation · Organisation</div>
+        </div>
+      </div>
+      <div class="sp-card fade-in">
+        <div class="sp-img"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(107,63,160,0.3)"
+            stroke-width="1.5">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+          </svg><span>Photo Coming Soon</span></div>
+        <div class="sp-info">
+          <div class="sp-tag">Speaker</div>
+          <div class="sp-name">Speaker TBA</div>
+          <div class="sp-role">Designation · Organisation</div>
+        </div>
+      </div>
+      <div class="sp-card fade-in">
+        <div class="sp-img"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(107,63,160,0.3)"
+            stroke-width="1.5">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+          </svg><span>Photo Coming Soon</span></div>
+        <div class="sp-info">
+          <div class="sp-tag">Speaker</div>
+          <div class="sp-name">Speaker TBA</div>
+          <div class="sp-role">Designation · Organisation</div>
+        </div>
+      </div>
+      <div class="sp-card fade-in">
+        <div class="sp-img"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(107,63,160,0.3)"
+            stroke-width="1.5">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+          </svg><span>Photo Coming Soon</span></div>
+        <div class="sp-info">
+          <div class="sp-tag">Speaker</div>
+          <div class="sp-name">Speaker TBA</div>
+          <div class="sp-role">Designation · Organisation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORS -->
+  <section id="sponsors">
+    <p class="section-label fade-in">Our Partners</p>
+    <h2 class="section-title fade-in">OUR <span class="accent">SPONSORS</span></h2>
+    <p style="color:var(--text-muted); font-size:14px; margin-top:10px;" class="fade-in">Sponsorship opportunities are
+      open. Be part of this movement.</p>
+    <div class="sp-row">
+      <div class="sp-box featured">Integral University</div>
+      <div class="sp-box">Sponsor TBA</div>
+      <div class="sp-box">Sponsor TBA</div>
+      <div class="sp-box">Sponsor TBA</div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <p class="section-label fade-in">Got Questions?</p>
+    <h2 class="section-title fade-in">FREQUENTLY <span class="accent">ASKED</span></h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Who can attend TEDxIntegralUniversity? <span
+            class="icon">+</span></button>
+        <div class="faq-a">The event is open to students, faculty, professionals, and anyone passionate about ideas.
+          Tickets are available on this website.</div>
+      </div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How can I purchase tickets? <span
+            class="icon">+</span></button>
+        <div class="faq-a">Click the "Get Ticket" button and follow the instructions. Pricing and availability will be
+          announced soon.</div>
+      </div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Are there prerequisites to attend? <span
+            class="icon">+</span></button>
+        <div class="faq-a">None! Just bring an open mind and curiosity for new ideas.</div>
+      </div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will talks be available online after the
+          event? <span class="icon">+</span></button>
+        <div class="faq-a">Yes — recordings will be made available on our YouTube channel after the event.</div>
+      </div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">When and where will TEDxIntegralUniversity
+          2026 take place? <span class="icon">+</span></button>
+        <div class="faq-a">The event will be held at Integral University, Dasauli, Kursi Road, Lucknow, Uttar Pradesh –
+          226026. Exact date in September 2026 coming soon!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div>
+        <p class="section-label fade-in">Say Hello</p>
+        <h2 class="contact-heading fade-in">Get In <span class="accent">Touch</span></h2>
+        <p class="contact-sub fade-in">Have a question or want to collaborate? Send us a message.</p>
+        <div class="form-row">
+          <div class="ff"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
+          <div class="ff"><label>Email Address</label><input type="email" placeholder="you@email.com"></div>
+        </div>
+        <div class="ff"><label>Subject</label><input type="text" placeholder="What's this about?"></div>
+        <div class="ff"><label>Message</label><textarea rows="5" placeholder="Your message..."></textarea></div>
+        <button class="btn-primary" style="width:100%; margin-top:4px;">Send Message →</button>
+      </div>
+      <div class="contact-info-col fade-in">
+        <div class="cd-row">
+          <div class="cd-icon">✉</div>
+          <div>
+            <div class="cd-lbl2">Email Us</div>
+            <div class="cd-val">tedx@integraluniversity.ac.in</div>
+          </div>
+        </div>
+        <div class="cd-row">
+          <div class="cd-icon">📍</div>
+          <div>
+            <div class="cd-lbl2">Find Us</div>
+            <div class="cd-val">Integral University, Dasauli,<br>Kursi Road, Lucknow – 226026</div>
+          </div>
+        </div>
+        <div class="cd-row">
+          <div class="cd-icon">📞</div>
+          <div>
+            <div class="cd-lbl2">Call Us</div>
+            <div class="cd-val">+91 XXXXX XXXXX</div>
+          </div>
+        </div>
+        <div class="socials">
+          <a class="soc-btn" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg></a>
+          <a class="soc-btn" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8">
+              <path
+                d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+            </svg></a>
+          <a class="soc-btn" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-copy">©2026 <span style="color:var(--red)">TEDx</span> Integral University · All Rights Reserved
+      · Independently organized TED event</div>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#speakers">Speakers</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
+
 </html>
