@@ -1,0 +1,16 @@
+#faq {
+  text-align: center;
+}
+
+.faq-main-title {
+  color: #ff2b2b;
+  font-size: 72px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.faq-subtitle {
+  color: #b0b0b0;
+  font-size: 22px;
+  margin-bottom: 60px;
+}
