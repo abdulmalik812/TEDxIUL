@@ -61,6 +61,15 @@ export default function FAQ() {
             226026. Exact date in September 2026 coming soon!
           </div>
         </div>
+        <div className="faq-item">
+  <button className="faq-q" onClick={handleToggleFaq}>
+    How can I become a speaker at TEDxIUL? <span className="icon">+</span>
+  </button>
+
+  <div className="faq-a">
+    Speaker applications and nominations will be announced soon. Follow our official channels for updates.
+  </div>
+</div>
       </div>
     </section>
   );
