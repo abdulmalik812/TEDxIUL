@@ -1,0 +1,438 @@
+/* src/components/Venue.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap');
+
+#venue {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-weight: 300;
+  padding: 120px 48px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Background subtle glow similar to countdown/tickets */
+#venue::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(107, 63, 160, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.venue-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Eyebrow */
+.venue-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 44px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.venue-eyebrow.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.venue-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+  box-shadow: 0 0 10px var(--red);
+}
+
+.venue-eyebrow-text {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.venue-eyebrow-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Grid */
+.venue-split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  min-height: 480px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--gray);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+}
+
+.venue-split.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Map Section */
+.venue-map-container {
+  position: relative;
+  overflow: hidden;
+  background: #050510;
+  min-height: 350px;
+}
+
+.venue-map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  object-fit: cover;
+  filter: grayscale(1) brightness(0.4) contrast(1.25);
+  transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.venue-map-container:hover iframe {
+  filter: grayscale(0.2) brightness(0.7) contrast(1.05);
+}
+
+.venue-map-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(5, 5, 16, 0.4) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Premium corners on Map */
+.venue-map-corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 44px;
+  height: 44px;
+}
+
+.venue-map-corner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 44px;
+  background: var(--red);
+}
+
+.venue-map-corner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 2px;
+  background: var(--red);
+}
+
+.venue-map-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.venue-map-pill {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245, 240, 234, 0.85);
+  background: rgba(5, 5, 16, 0.85);
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 2px;
+}
+
+.venue-map-coords {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+/* Info Panel */
+.venue-panel {
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  background: var(--gray);
+  overflow: hidden;
+}
+
+.venue-panel-top {
+  padding: 36px 36px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.venue-panel-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 12px;
+}
+
+.venue-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.venue-panel-logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+}
+
+.venue-panel-title-text {
+  flex: 1;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+.venue-panel-title strong {
+  font-weight: 700;
+}
+
+.venue-panel-sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+/* Description paragraph (bio) */
+.venue-panel-desc {
+  padding: 24px 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: rgba(245, 240, 234, 0.65);
+  font-weight: 400;
+}
+
+/* Stats (Capacity & Campus) */
+.venue-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.venue-stat {
+  padding: 20px 36px;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.venue-stat:last-child {
+  border-right: none;
+}
+
+.venue-stat-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.venue-stat-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+/* Meta list rows */
+.venue-meta {
+  flex: 1;
+}
+
+.venue-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.venue-meta-row:last-child {
+  border-bottom: none;
+}
+
+.venue-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.venue-meta-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--red);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.venue-meta-key {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.venue-meta-val {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--white);
+  text-align: right;
+}
+
+/* Call to Action button */
+.venue-cta-wrap {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.venue-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 36px;
+  background: transparent;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.venue-cta:hover {
+  background: rgba(230, 43, 30, 0.06);
+  color: var(--white);
+}
+
+.venue-cta:hover .venue-cta-arrow {
+  transform: translateX(6px);
+  color: var(--red);
+}
+
+.venue-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.venue-cta-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 8px var(--red);
+}
+
+.venue-cta-arrow {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.35);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive adjustment */
+@media (max-width: 992px) {
+  #venue {
+    padding: 80px 24px;
+  }
+
+  .venue-split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .venue-panel {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+}
+
+@media (max-width: 576px) {
+  .venue-map-container {
+    height: 280px;
+    min-height: 280px;
+  }
+
+  .venue-panel-top,
+  .venue-panel-desc,
+  .venue-stat,
+  .venue-meta-row,
+  .venue-cta {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .venue-map-footer {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .venue-map-coords {
+    display: none;
+  }
+
+  .venue-panel-title {
+    font-size: 26px;
+  }
+
+  .venue-panel-logo {
+    width: 44px;
+    height: 44px;
+  }
+}
