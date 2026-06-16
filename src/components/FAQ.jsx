@@ -15,9 +15,38 @@ export default function FAQ() {
 
   return (
     <section id="faq">
-      <p className="section-label fade-in">Got Questions?</p>
-      <h2 className="section-title fade-in">FREQUENTLY <span className="accent">ASKED</span></h2>
+     <h2 className="faq-main-title fade-in">
+  Got Questions?
+</h2>
+
+<p className="faq-subtitle fade-in">
+  Everything you need to know before joining the TEDxIntegralUniversity experience.
+</p>
       <div className="faq-list">
+        <div className="faq-item">
+          <button className="faq-q" onClick={handleToggleFaq}>
+            What is TEDx? <span className="icon">+</span>
+          </button>
+          <div className="faq-a">
+            TEDx events are independently organized events licensed by TED that bring communities together to share ideas worth spreading.
+          </div>
+        </div>
+         <div className="faq-item">
+          <button className="faq-q" onClick={handleToggleFaq}>
+            What is TEDxIntegralUniversity ? <span className="icon">+</span>
+          </button>
+          <div className="faq-a">
+            TEDxIntegralUniversity is the official TEDx event hosted at Integral University, bringing together innovators, leaders, and changemakers.
+          </div>
+        </div>
+         <div className="faq-item">
+          <button className="faq-q" onClick={handleToggleFaq}>
+           What does the theme "Tessellation" mean? <span className="icon">+</span>
+          </button>
+          <div className="faq-a">
+            Tessellation represents how individual ideas, perspectives, and experiences come together to create meaningful collective impact.
+          </div>
+        </div>
         <div className="faq-item">
           <button className="faq-q" onClick={handleToggleFaq}>
             Who can attend TEDxIntegralUniversity? <span className="icon">+</span>
@@ -29,38 +58,85 @@ export default function FAQ() {
         </div>
         <div className="faq-item">
           <button className="faq-q" onClick={handleToggleFaq}>
-            How can I purchase tickets? <span className="icon">+</span>
+            Why should I attend TEDxIntegralUniversity? <span className="icon">+</span>
           </button>
           <div className="faq-a">
-            Click the "Get Ticket" button and follow the instructions. Pricing and availability will be
-            announced soon.
+            You'll gain insights from inspiring speakers, connect with like-minded individuals, and experience ideas that can spark personal and professional growth.
           </div>
         </div>
         <div className="faq-item">
           <button className="faq-q" onClick={handleToggleFaq}>
-            Are there prerequisites to attend? <span className="icon">+</span>
+            How can I register for the event? <span className="icon">+</span>
           </button>
           <div className="faq-a">
-            None! Just bring an open mind and curiosity for new ideas.
+            Registration details and ticket information will be announced through the official TEDxIntegralUniversity website and social media channels.
           </div>
         </div>
         <div className="faq-item">
           <button className="faq-q" onClick={handleToggleFaq}>
-            Will talks be available online after the event? <span className="icon">+</span>
+           Will there be a participation certificate?<span className="icon">+</span>
           </button>
           <div className="faq-a">
-            Yes — recordings will be made available on our YouTube channel after the event.
+            Yes, attendees will receive a participation certificate after successfully attending the event.
           </div>
         </div>
         <div className="faq-item">
           <button className="faq-q" onClick={handleToggleFaq}>
-            When and where will TEDxIntegralUniversity 2026 take place? <span className="icon">+</span>
+            Who are the speakers at TEDxIntegralUniversity?<span className="icon">+</span>
           </button>
           <div className="faq-a">
-            The event will be held at Integral University, Dasauli, Kursi Road, Lucknow, Uttar Pradesh –
-            226026. Exact date in September 2026 coming soon!
+           Speaker announcements will be made soon. Stay connected with our official platforms for updates.
           </div>
         </div>
+        <div className="faq-item">
+  <button className="faq-q" onClick={handleToggleFaq}>
+    Is TEDx the same as TED?<span className="icon">+</span>
+  </button>
+
+  <div className="faq-a">
+   No. TED is the global organization, while TEDx events are independently organized under a TED license.
+  </div>
+</div>
+ <div className="faq-item">
+  <button className="faq-q" onClick={handleToggleFaq}>
+   Can I interact with speakers?<span className="icon">+</span>
+  </button>
+  <div className="faq-a">
+  Depending on the event schedule, networking and interaction opportunities may be available.
+</div>
+      </div>
+      <div className="faq-item">
+  <button className="faq-q" onClick={handleToggleFaq}>
+   What can I expect from the event?<span className="icon">+</span>
+  </button>
+  <div className="faq-a">
+ Expect inspiring talks, engaging discussions, networking opportunities, and a day filled with innovative ideas.
+</div>
+      </div>
+       <div className="faq-item">
+  <button className="faq-q" onClick={handleToggleFaq}>
+   Can students from other institutions attend?<span className="icon">+</span>
+  </button>
+  <div className="faq-a">
+ Yes. The event welcomes students from Integral University as well as other institutions.
+</div>
+      </div>
+       <div className="faq-item">
+  <button className="faq-q" onClick={handleToggleFaq}>
+   Will food and refreshments be provided?<span className="icon">+</span>
+  </button>
+  <div className="faq-a">
+ Yes, refreshments and meals will be provided according to the ticket category and event schedule.
+</div>
+      </div>
+       <div className="faq-item">
+  <button className="faq-q" onClick={handleToggleFaq}>
+  How can I stay updated about TEDxIntegralUniversity?<span className="icon">+</span>
+  </button>
+  <div className="faq-a">
+ Follow our official website and social media channels for the latest announcements and updates.
+</div>
+      </div>
       </div>
     </section>
   );

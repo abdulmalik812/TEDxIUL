@@ -1,0 +1,11 @@
+.about-img-box {
+  width: 100%;
+  max-width: 650px;
+}
+
+.about-image {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(235, 0, 40, 0.15);
+}

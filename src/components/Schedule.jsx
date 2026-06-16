@@ -43,7 +43,36 @@ export default function Schedule() {
         </div>
         <div className="tl-item">
           <div className="tl-dot"></div>
-          <div className="tl-time">TBD · Closing</div>
+          <div className="tl-time">TBD · Panel Discussion</div>
+          <div className="tl-name">Panel Discussion</div>
+          <div className="tl-desc">Industry experts and innovators discuss emerging trends and future opportunities.</div>
+          <span className="tl-tag">Talks</span>
+        </div>
+         <div className="tl-item">
+          <div className="tl-dot"></div>
+          <div className="tl-time">TBD ·Interactive Workshop</div>
+          <div className="tl-name">Interactive Workshop</div>
+          <div className="tl-desc">Hands-on activities designed to encourage creativity, collaboration, and learning.</div>
+          <span className="tl-tag">Talks</span>
+        </div>
+        <div className="tl-item">
+          <div className="tl-dot"></div>
+          <div className="tl-time">TBD ·Q&A</div>
+          <div className="tl-name">Audience Q&A</div>
+          <div className="tl-desc">Engage directly with speakers through an interactive question-and-answer session. Share your thoughts, ask questions, and explore ideas from new perspectives.</div>
+          <span className="tl-tag">Talks</span>
+        </div>
+       <div className="tl-item">
+          <div className="tl-dot"></div>
+          <div className="tl-time">TBD ·Networking</div>
+          <div className="tl-name">Networking Session</div>
+          <div className="tl-desc">Connect with fellow attendees, speakers, innovators, and changemakers. Build meaningful relationships, exchange ideas, and expand your professional network.</div>
+          <span className="tl-tag">Talks</span>
+        </div>
+       
+        <div className="tl-item">
+          <div className="tl-dot"></div>
+          <div className="tl-time">TBD ·Closing</div>
           <div className="tl-name">Closing Ceremony</div>
           <div className="tl-desc">Felicitation, thank you, and the collective mosaic we've built together.</div>
           <span className="tl-tag">Closing</span>
