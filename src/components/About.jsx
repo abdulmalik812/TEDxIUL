@@ -1,3 +1,5 @@
+
+import tedxNetwork from '../assets/tedx-network.png';
 import './About.css';
 
 export default function About() {
@@ -11,23 +13,20 @@ export default function About() {
         </p>
         <p className="about-body fade-in">
           Our theme <strong>"TESSELLATION"</strong> — From Individual Ideas to Collective
-          Impact — celebrates how distinct perspectives, when placed together, form a pattern larger and more beautiful
+          Impact celebrates how distinct perspectives, when placed together form a pattern larger and more beautiful
           than any single piece alone. Like tiles in a mosaic, every voice matters.
         </p>
         <a href="#speakers" className="btn-primary fade-in" style={{ marginTop: '20px', display: 'inline-block' }}>
           Explore Speakers
         </a>
       </div>
-      <div className="fade-in">
-        <div className="about-img-box">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(107,63,160,0.4)" strokeWidth="1">
-            <rect x="3" y="3" width="18" height="18" rx="2" />
-            <circle cx="8.5" cy="8.5" r="1.5" />
-            <path d="M21 15l-5-5L5 21" />
-          </svg>
-          <span>Image Coming Soon</span>
-        </div>
-      </div>
+      <div className="about-img-box">
+  <img
+    src={tedxNetwork}
+    alt="TEDxIUL Network"
+    className="about-image"
+  />
+</div>
     </section>
   );
 }
