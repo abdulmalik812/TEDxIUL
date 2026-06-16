@@ -1,3 +1,4 @@
+// Inspired by Owais Raza (@oraza7867)
 import React, { useEffect, useRef, useState } from 'react';
 import './Venue.css';
 import universityLogo from '../assets/IUL.jpg';
