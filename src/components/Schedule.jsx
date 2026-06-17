@@ -9,7 +9,7 @@ export default function Schedule() {
         <div className="tl-item">
           <div className="tl-dot"></div>
           <div className="tl-time">TBD · Entry</div>
-          <div className="tl-name">Welcome & Registration</div>
+          <div className="tl-name">Welcome <span className="tl-amp">&amp;</span> Registration</div>
           <div className="tl-desc">Collect your pass and goodies. Meet fellow attendees and start connecting.</div>
           <span className="tl-tag">Entry</span>
         </div>
@@ -30,7 +30,7 @@ export default function Schedule() {
         <div className="tl-item">
           <div className="tl-dot"></div>
           <div className="tl-time">TBD · Break</div>
-          <div className="tl-name">Tea Break & Networking</div>
+          <div className="tl-name">Tea Break <span className="tl-amp">&amp;</span> Networking</div>
           <div className="tl-desc">Refreshments and open conversation. Connect with speakers and attendees.</div>
           <span className="tl-tag">Break</span>
         </div>
@@ -58,7 +58,7 @@ export default function Schedule() {
         <div className="tl-item">
           <div className="tl-dot"></div>
           <div className="tl-time">TBD ·Q&A</div>
-          <div className="tl-name">Audience Q&A</div>
+          <div className="tl-name">Audience Q<span className="tl-amp">&amp;</span>A</div>
           <div className="tl-desc">Engage directly with speakers through an interactive question-and-answer session. Share your thoughts, ask questions, and explore ideas from new perspectives.</div>
           <span className="tl-tag">Talks</span>
         </div>
