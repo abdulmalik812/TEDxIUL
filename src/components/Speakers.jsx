@@ -21,6 +21,7 @@ export default function Speakers() {
             <div className="sp-tag">Featured Speaker</div>
             <div className="sp-name">Speaker TBA</div>
             <div className="sp-role">Designation · Organisation</div>
+            <div className="sp-topic">"Topic to be announced"</div>
           </div>
         </div>
         <div className="sp-card fade-in">
@@ -35,6 +36,7 @@ export default function Speakers() {
             <div className="sp-tag">Speaker</div>
             <div className="sp-name">Speaker TBA</div>
             <div className="sp-role">Designation · Organisation</div>
+            <div className="sp-topic">"Topic to be announced"</div>
           </div>
         </div>
         <div className="sp-card fade-in">
@@ -49,6 +51,7 @@ export default function Speakers() {
             <div className="sp-tag">Speaker</div>
             <div className="sp-name">Speaker TBA</div>
             <div className="sp-role">Designation · Organisation</div>
+            <div className="sp-topic">"Topic to be announced"</div>
           </div>
         </div>
         <div className="sp-card fade-in">
@@ -63,6 +66,7 @@ export default function Speakers() {
             <div className="sp-tag">Speaker</div>
             <div className="sp-name">Speaker TBA</div>
             <div className="sp-role">Designation · Organisation</div>
+            <div className="sp-topic">"Topic to be announced"</div>
           </div>
         </div>
       </div>

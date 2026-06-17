@@ -101,26 +101,6 @@ nav {
   color: var(--white);
 }
 
-.btn-ticket {
-  background: var(--red);
-  color: var(--white);
-  border: none;
-  padding: 10px 24px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.btn-ticket:hover {
-  background: #c42216;
-  transform: translateY(-1px);
-}
 
 /* ── HERO ── */
 #hero {

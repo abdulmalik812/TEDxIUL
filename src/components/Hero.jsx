@@ -1,8 +1,9 @@
 import './Hero.css';
+import lkoBg from '../assets/LKO.png';
 
 export default function Hero() {
   return (
-    <section id="hero">
+    <section id="hero" style={{ backgroundImage: `url(${lkoBg})` }}>
       <canvas id="heroCanvas"></canvas>
       <div className="hero-overlay"></div>
       <div className="hero-content">
