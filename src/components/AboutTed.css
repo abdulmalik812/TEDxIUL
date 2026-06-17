@@ -89,3 +89,23 @@
     padding: 36px 24px;
   }
 }
+
+.ted-intro {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ted-intro-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(245, 240, 234, 0.85);
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.ted-intro-text strong {
+  color: var(--red);
+  font-weight: 700;
+}
+

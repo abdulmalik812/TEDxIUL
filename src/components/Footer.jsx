@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="footer-copy">
-        ©2026 <span style={{ color: 'var(--red)' }}>TEDx</span> Integral University · All Rights Reserved · Independently organized TED event
+        ©2026 <span style={{ color: 'var(--red)' }}>TEDx</span>IntegralUniversity · This independent TEDx event is operated under license from TED. All Rights Reserved.
       </div>
       <ul className="footer-links">
         <li><a href="#about">About</a></li>
