@@ -1,0 +1,468 @@
+/* ── SHARED PAGE STYLES ── */
+/* All route-based pages share these base styles */
+
+/* Page wrapper — sits below fixed navbar */
+.page-root {
+  min-height: 100vh;
+  background: var(--black);
+  color: var(--white);
+  padding-top: 80px; /* clear fixed navbar */
+}
+
+/* Page hero block */
+.page-hero {
+  position: relative;
+  padding: 80px 48px 64px;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 0%, rgba(230, 43, 30, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(230, 43, 30, 0.35);
+  background: rgba(230, 43, 30, 0.07);
+  padding: 5px 16px;
+  border-radius: 100px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 24px;
+}
+
+.page-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(42px, 7vw, 80px);
+  font-weight: 400;
+  letter-spacing: 4px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.page-hero h1 .accent {
+  color: var(--red);
+}
+
+.page-hero-sub {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Content container */
+.page-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 48px;
+}
+
+/* ── SPEAKER CARDS ── */
+.speakers-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.speaker-card {
+  background: var(--gray);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.speaker-card:hover {
+  border-color: rgba(230, 43, 30, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.speaker-card-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.speaker-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.speaker-card-photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.speaker-card-photo-placeholder svg {
+  opacity: 0.25;
+}
+
+.speaker-card-body {
+  padding: 20px 24px 24px;
+}
+
+.speaker-card-topic {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+
+.speaker-card-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.speaker-card-designation {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+.speaker-card-bio {
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(245, 240, 234, 0.55);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 14px;
+}
+
+/* ── SPONSOR CARDS ── */
+.sponsors-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.sponsor-card {
+  background: var(--gray);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.sponsor-card:hover {
+  border-color: rgba(230, 43, 30, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.sponsor-card.featured {
+  border-color: rgba(230, 43, 30, 0.3);
+  background: linear-gradient(135deg, rgba(230, 43, 30, 0.06) 0%, var(--gray) 100%);
+}
+
+.sponsor-card-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--mid);
+}
+
+.sponsor-card-logo-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--mid);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.sponsor-card-tier {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.sponsor-card-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+
+.sponsor-card-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+/* ── TRANSPORT CARDS (Venue page) ── */
+.transport-section {
+  margin-top: 72px;
+}
+
+.transport-section-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.transport-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.transport-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.transport-card {
+  background: var(--gray);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  padding: 28px 24px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.transport-card:hover {
+  border-color: rgba(230, 43, 30, 0.2);
+  transform: translateY(-2px);
+}
+
+.transport-card-icon {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.transport-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.transport-card-mode {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+
+.transport-card-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.transport-card-desc {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.transport-card-detail {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 11px;
+  color: rgba(245, 240, 234, 0.45);
+}
+
+.transport-card-detail::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+}
+
+/* ── ABOUT PAGES ── */
+.about-page-content {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.about-page-content p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: rgba(245, 240, 234, 0.7);
+  margin-bottom: 20px;
+}
+
+.about-page-content h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: 3px;
+  color: var(--white);
+  margin: 48px 0 16px;
+}
+
+.about-page-content h2:first-child {
+  margin-top: 0;
+}
+
+.about-page-content .accent {
+  color: var(--red);
+}
+
+.about-highlight-box {
+  border: 1px solid rgba(230, 43, 30, 0.2);
+  background: rgba(230, 43, 30, 0.05);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+
+.about-highlight-box p {
+  margin-bottom: 0;
+  font-style: italic;
+  font-size: 16px;
+  color: rgba(245, 240, 234, 0.85);
+}
+
+/* ── PLACEHOLDER (Team / Register) ── */
+.placeholder-page {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 48px;
+}
+
+.placeholder-icon {
+  font-size: 48px;
+  margin-bottom: 28px;
+  opacity: 0.4;
+}
+
+.placeholder-page h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 5vw, 48px);
+  letter-spacing: 4px;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.placeholder-page p {
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 400px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+/* ── BACK LINK ── */
+.page-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s, gap 0.2s;
+  margin-bottom: 48px;
+}
+
+.page-back-link:hover {
+  color: var(--white);
+  gap: 12px;
+}
+
+.page-back-link::before {
+  content: '←';
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 60px 24px 48px;
+  }
+
+  .page-wrap {
+    padding: 48px 24px;
+  }
+
+  .transport-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .speakers-page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sponsors-page-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .transport-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

@@ -1,79 +1,171 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
+import tedxLogo from '../assets/tedx-logo.png';
 
+// Desktop nav items (after About dropdown)
 const NAV_LINKS = [
-  { label: 'About',    href: '#about' },
-  { label: 'Schedule', href: '#schedule' },
-  { label: 'Speakers', href: '#speakers' },
-  { label: 'Sponsors', href: '#sponsors' },
-  { label: 'FAQ',      href: '#faq' },
-  { label: 'Contact',  href: '#contact' },
+  { label: 'Speakers', to: '/speakers'  },
+  { label: 'Schedule', to: '/schedule'  },
+  { label: 'Sponsors', to: '/sponsors'  },
+  { label: 'Register', to: '/register'  },
+  { label: 'Venue',    to: '/venue'     },
+  { label: 'FAQ',      to: '/faq'       },
+  { label: 'Contact',  to: '/contact'   },
+];
+
+const ABOUT_LINKS = [
+  { label: 'About TEDx',           to: '/about/tedx'    },
+  { label: 'About TEDxIUL',        to: '/about/tedxiul' },
+  { label: 'About Integral Univ.', to: '/about/iul'     },
+  { label: 'Our Team',             to: '/team'          },
 ];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen]         = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const location    = useLocation();
 
-  // Close menu on route-change (anchor click)
-  function handleLinkClick() {
-    setOpen(false);
-  }
-
-  // Lock body scroll when menu is open
+  // Close mobile menu on route change
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
+    setMenuOpen(false);
+    setMobileAboutOpen(false);
+  }, [location.pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
-  }, [open]);
+  }, [menuOpen]);
 
-  // Close on Escape key
+  // Close dropdown on Escape key
   useEffect(() => {
-    function onKey(e) { if (e.key === 'Escape') setOpen(false); }
+    function onKey(e) {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        setDropdownOpen(false);
+      }
+    }
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
+  // Close desktop dropdown when clicking outside
+  useEffect(() => {
+    function onClickOutside(e) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', onClickOutside);
+    return () => document.removeEventListener('mousedown', onClickOutside);
+  }, []);
+
+  function handleMenuLinkClick() {
+    setMenuOpen(false);
+  }
+
   return (
     <>
-      <nav className={open ? 'nav-open' : ''}>
-        {/* Brand */}
-        <a className="nav-brand" href="#">
-          <svg className="nav-logo" viewBox="0 0 320 36" xmlns="http://www.w3.org/2000/svg">
-            <text x="0" y="28" fontFamily="'Bebas Neue', sans-serif" fontSize="32" fontWeight="400" fill="#E62B1E" letterSpacing="2">TED</text>
-            <text x="62" y="18" fontFamily="'DM Sans', sans-serif" fontSize="13" fontWeight="600" fill="#E62B1E">x</text>
-            <text x="76" y="26" fontFamily="'DM Sans', sans-serif" fontSize="14" fontWeight="400" fill="#F5F0EA" letterSpacing="1.2">Integral University</text>
-          </svg>
-        </a>
+      <nav className={menuOpen ? 'nav-open' : ''}>
+        {/* Brand logo */}
+        <Link to="/" className="nav-brand" onClick={() => setMenuOpen(false)}>
+          <img
+            src={tedxLogo}
+            alt="TEDxIntegralUniversity logo"
+            className="nav-logo-img"
+          />
+        </Link>
 
         {/* Desktop links */}
         <ul className="nav-links">
-          {NAV_LINKS.map(({ label, href }) => (
-            <li key={label}><a href={href}>{label}</a></li>
+          {/* Home */}
+          <li><Link to="/">Home</Link></li>
+
+          {/* About dropdown */}
+          <li
+            className="nav-dropdown-item"
+            ref={dropdownRef}
+          >
+            <button
+              className={`nav-dropdown-trigger${dropdownOpen ? ' is-active' : ''}`}
+              onClick={() => setDropdownOpen(o => !o)}
+              aria-expanded={dropdownOpen}
+              aria-haspopup="true"
+            >
+              About
+              <span className="nav-dropdown-chevron" aria-hidden="true">▾</span>
+            </button>
+
+            <div className={`nav-dropdown-panel${dropdownOpen ? ' is-open' : ''}`} role="menu">
+              {ABOUT_LINKS.map(({ label, to }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  className="nav-dropdown-link"
+                  role="menuitem"
+                  onClick={() => setDropdownOpen(false)}
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </li>
+
+          {/* Remaining links */}
+          {NAV_LINKS.map(({ label, to }) => (
+            <li key={label}>
+              <Link to={to}>{label}</Link>
+            </li>
           ))}
         </ul>
 
-        {/* Hamburger button (mobile only) */}
+        {/* Hamburger button (mobile) */}
         <button
-          className={`hamburger ${open ? 'is-open' : ''}`}
-          onClick={() => setOpen(o => !o)}
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
+          className={`hamburger ${menuOpen ? 'is-open' : ''}`}
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
         >
           <span /><span /><span />
         </button>
       </nav>
 
       {/* Mobile drawer */}
-      <div className={`mobile-menu ${open ? 'is-open' : ''}`} aria-hidden={!open}>
+      <div className={`mobile-menu ${menuOpen ? 'is-open' : ''}`} aria-hidden={!menuOpen}>
         <ul>
-          {NAV_LINKS.map(({ label, href }) => (
+          {/* About — tap to expand submenu */}
+          <li className="mobile-about-item">
+            <button
+              className={`mobile-about-trigger${mobileAboutOpen ? ' is-open' : ''}`}
+              onClick={() => setMobileAboutOpen(o => !o)}
+              aria-expanded={mobileAboutOpen}
+            >
+              About
+              <span className="mobile-about-chevron" aria-hidden="true">▾</span>
+            </button>
+
+            <ul className={`mobile-about-sub${mobileAboutOpen ? ' is-open' : ''}`}>
+              {ABOUT_LINKS.map(({ label, to }) => (
+                <li key={to}>
+                  <Link to={to} onClick={handleMenuLinkClick}>{label}</Link>
+                </li>
+              ))}
+            </ul>
+          </li>
+
+          {NAV_LINKS.map(({ label, to }) => (
             <li key={label}>
-              <a href={href} onClick={handleLinkClick}>{label}</a>
+              <Link to={to} onClick={handleMenuLinkClick}>{label}</Link>
             </li>
           ))}
         </ul>
       </div>
 
       {/* Backdrop */}
-      {open && <div className="menu-backdrop" onClick={() => setOpen(false)} />}
+      {menuOpen && <div className="menu-backdrop" onClick={() => setMenuOpen(false)} />}
     </>
   );
 }
