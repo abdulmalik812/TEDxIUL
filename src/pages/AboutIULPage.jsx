@@ -9,7 +9,7 @@ export default function AboutIULPage() {
         <div className="page-hero-label">About</div>
         <h1>Integral <span className="accent">University</span></h1>
         <p className="page-hero-sub">
-          A premier institution committed to academic excellence, research, and holistic development — right in the heart of Lucknow.
+           A distinguished institution where knowledge, innovation, and purpose come together to shape future leaders.
         </p>
       </div>
 
@@ -19,38 +19,36 @@ export default function AboutIULPage() {
         <div className="about-page-content">
           <h2>About <span className="accent">IUL</span></h2>
           <p>
-            Integral University, Lucknow, is a premier educational institution committed to academic excellence,
-            research, innovation, and holistic development. Established under the Uttar Pradesh State Legislature,
-            the university has grown into one of North India's most respected seats of learning.
+           Established in 2004, Integral University, Lucknow, is one of North India's leading multidisciplinary universities, recognized 
+           for its commitment to academic excellence, innovation, research, and inclusive education. Offering programs across engineering, medical sciences, 
+           management, law, architecture, pharmacy, humanities, and more, the university nurtures talent through a holistic learning environment.
           </p>
           <p>
-            With a vibrant and diverse student community spanning thousands of enrolled students across disciplines,
-            the university provides an environment that nurtures creativity, critical thinking, leadership, and
-            entrepreneurship. Through its dedication to quality education and societal impact, Integral University
-            continues to empower future leaders who are prepared to address global challenges and contribute
-            meaningfully to society.
+           With students from across India and numerous countries around the world, 
+           Integral University promotes diversity, creativity, leadership, and entrepreneurship. Its emphasis on experiential learning, modern infrastructure, 
+           and industry collaboration prepares graduates to become confident professionals and responsible global citizens.
           </p>
 
           <div className="about-highlight-box">
             <p>
-              "Integral University — where knowledge meets purpose, and where every discipline is a stepping stone
-              toward a better world."
+              "Integral University empowers minds to innovate, inspire, and lead with knowledge, integrity, and compassion."
             </p>
           </div>
 
           <h2>Campus &amp; <span className="accent">Facilities</span></h2>
           <p>
-            Spread across a lush 120-acre campus in Dasauli, Lucknow, Integral University offers world-class
-            infrastructure including modern lecture halls, research laboratories, a central library, sports
-            facilities, and dedicated innovation hubs. The campus is designed to foster both academic rigour
-            and co-curricular excellence.
+            Located on a 120 acres of modern green campus in Lucknow, Integral University offers state-of-the-art classrooms, 
+            advanced research laboratories, a central library, innovation and incubation centres, sports complexes, auditoriums,
+             healthcare facilities, and vibrant student spaces. The campus is designed to foster academic excellence while providing
+            a dynamic environment for personal and professional growth.
           </p>
 
           <h2>Location &amp; <span className="accent">Access</span></h2>
           <p>
-            The university is located at Dasauli, Kursi Road, Lucknow – 226026, Uttar Pradesh. It is well
-            connected by road and is approximately 30 km from Lucknow's Chaudhary Charan Singh International
-            Airport and easily accessible from major railway stations.
+           Integral University is situated at Kursi Road, Lucknow, Uttar Pradesh, 
+           offering convenient connectivity by road, rail, and air. The campus is approximately 
+           30 km from Chaudhary Charan Singh International Airport and is easily accessible from major 
+           railway stations and key locations across the city, making it an ideal destination for students and visitors alike.
           </p>
 
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '40px' }}>
