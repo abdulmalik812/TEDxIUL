@@ -239,7 +239,7 @@
   color: var(--text-muted);
 }
 
-/* ── TRANSPORT CARDS (Venue page) ── */
+/* ── TRANSPORT CARDS (legacy, kept for compatibility) ── */
 .transport-section {
   margin-top: 72px;
 }
@@ -335,6 +335,442 @@
   border-radius: 50%;
   background: var(--red);
   flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════════════════
+   VENUE PAGE — SHARED SECTION SCAFFOLDING
+════════════════════════════════════════════════════ */
+
+/* Shared eyebrow + heading used across all venue sections */
+.venue-section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.venue-section-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 10px var(--red);
+  flex-shrink: 0;
+}
+
+.venue-section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.venue-section-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.venue-section-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  letter-spacing: 3px;
+  color: var(--white);
+  margin-bottom: 40px;
+  line-height: 1.05;
+}
+
+.venue-section-heading .accent {
+  color: var(--red);
+}
+
+/* ════════════════════════════════════════════════════
+   ABOUT THE VENUE SECTION
+════════════════════════════════════════════════════ */
+
+.venue-about-section {
+  background: var(--gray);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.venue-about-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(107, 63, 160, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.venue-about-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.venue-about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.venue-about-body p {
+  font-size: 15.5px;
+  line-height: 1.9;
+  color: rgba(245, 240, 234, 0.68);
+}
+
+/* ════════════════════════════════════════════════════
+   GETTING HERE — PHOTO TRAVEL CARDS (2 × 2 grid)
+════════════════════════════════════════════════════ */
+
+.venue-travel-section {
+  background: var(--black);
+  padding: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.venue-travel-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 20% 80%, rgba(230, 43, 30, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.venue-travel-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.venue-travel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* ── Individual travel card ── */
+.venue-travel-card {
+  background: var(--gray);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s;
+}
+
+.venue-travel-card:hover {
+  border-color: rgba(230, 43, 30, 0.28);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* Photo area */
+.venue-travel-card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.venue-travel-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.72) saturate(0.9);
+  transition: filter 0.5s, transform 0.5s;
+}
+
+.venue-travel-card:hover .venue-travel-card-img {
+  filter: brightness(0.85) saturate(1);
+  transform: scale(1.04);
+}
+
+.venue-travel-card-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(14, 14, 30, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+/* Mode badge on top of photo */
+.venue-travel-card-mode-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(5, 5, 16, 0.82);
+  border: 1px solid rgba(230, 43, 30, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 2px;
+  padding: 5px 14px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.venue-travel-card-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Text area */
+.venue-travel-card-body {
+  padding: 24px 28px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.venue-travel-card-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  line-height: 1.15;
+}
+
+.venue-travel-card-desc {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: rgba(245, 240, 234, 0.6);
+  flex: 1;
+}
+
+.venue-travel-card-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: auto;
+}
+
+.venue-travel-card-metric-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.venue-travel-card-metric-value {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--red);
+  letter-spacing: 0.3px;
+}
+
+/* Maps direction button */
+.venue-travel-card-maps-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid rgba(230, 43, 30, 0.35);
+  border-radius: 2px;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: 100%;
+  justify-content: space-between;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.venue-travel-card-maps-btn:hover {
+  background: rgba(230, 43, 30, 0.08);
+  border-color: rgba(230, 43, 30, 0.65);
+}
+
+.venue-travel-card-maps-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--red);
+  flex-shrink: 0;
+}
+
+.venue-travel-card-maps-arrow {
+  color: var(--red);
+  font-size: 14px;
+  transition: transform 0.25s;
+  margin-left: auto;
+}
+
+.venue-travel-card-maps-btn:hover .venue-travel-card-maps-arrow {
+  transform: translateX(4px);
+}
+
+/* ════════════════════════════════════════════════════
+   MAPS & DIRECTIONS SECTION
+════════════════════════════════════════════════════ */
+
+.venue-maps-section {
+  background: var(--gray);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.venue-maps-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 100% at 50% 50%, rgba(230, 43, 30, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.venue-maps-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.venue-maps-body {
+  font-size: 15px;
+  line-height: 1.9;
+  color: rgba(245, 240, 234, 0.65);
+  margin-bottom: 36px;
+}
+
+.venue-maps-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: 1px solid rgba(230, 43, 30, 0.4);
+  color: var(--white);
+  padding: 14px 28px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+.venue-maps-cta:hover {
+  background: rgba(230, 43, 30, 0.1);
+  border-color: rgba(230, 43, 30, 0.7);
+  transform: translateY(-2px);
+}
+
+.venue-maps-cta-arrow {
+  color: var(--red);
+  font-size: 16px;
+  transition: transform 0.25s;
+}
+
+.venue-maps-cta:hover .venue-maps-cta-arrow {
+  transform: translateX(5px);
+}
+
+/* ════════════════════════════════════════════════════
+   LOCAL TIPS SECTION
+════════════════════════════════════════════════════ */
+
+.venue-tips-section {
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+
+.venue-tips-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 80% 20%, rgba(107, 63, 160, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.venue-tips-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.venue-tips-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.venue-tip-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  background: var(--gray);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  padding: 24px 28px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.venue-tip-card:hover {
+  border-color: rgba(230, 43, 30, 0.2);
+  transform: translateX(4px);
+}
+
+.venue-tip-icon {
+  font-size: 24px;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 40px;
+  text-align: center;
+  padding-top: 2px;
+}
+
+.venue-tip-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.venue-tip-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.venue-tip-text {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: rgba(245, 240, 234, 0.6);
 }
 
 /* ── ABOUT PAGES ── */
@@ -458,12 +894,38 @@
   .sponsors-page-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Venue page sections */
+  .venue-about-wrap,
+  .venue-maps-wrap,
+  .venue-tips-wrap,
+  .venue-travel-wrap {
+    padding: 56px 24px;
+  }
+
+  .venue-travel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-section-heading {
+    font-size: clamp(28px, 8vw, 40px);
+    margin-bottom: 28px;
+  }
 }
 
 @media (max-width: 480px) {
   .transport-card {
     flex-direction: column;
     gap: 12px;
+  }
+
+  .venue-tip-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .venue-tip-icon {
+    width: auto;
   }
 }
 .team-stats{
