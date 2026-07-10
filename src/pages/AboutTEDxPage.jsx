@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import './pages.css';
+import tedStage from "../assets/ted-stage.png";
 
 export default function AboutTEDxPage() {
   return (
@@ -17,6 +18,9 @@ export default function AboutTEDxPage() {
         <Link to="/" className="page-back-link">Home</Link>
 
         <div className="about-page-content">
+          <div className="about-layout">
+
+    <div className="about-text">
           <h2>What is <span className="accent">TEDx?</span></h2>
           <p>
             In the spirit of discovering and spreading ideas, TED has created a program called TEDx:
@@ -75,6 +79,23 @@ export default function AboutTEDxPage() {
               About TEDxIntegralUniversity
             </Link>
           </div>
+                  </div>
+
+        <div className="about-image">
+         
+            <img
+                src={tedStage}
+                alt="TEDx Event"
+               className="about-large-image"
+            />
+  <div className="about-image-overlay">
+        <h3>TEDx</h3>
+        <p>Ideas Worth Spreading</p>
+    </div>
+        </div>
+
+
+    </div>
         </div>
       </div>
 

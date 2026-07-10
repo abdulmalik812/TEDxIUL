@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import './pages.css';
-
+import tedxiulGraphic from "../assets/tedx-network.png";
 export default function AboutTEDxIULPage() {
   return (
     <div className="page-root">
@@ -17,6 +17,11 @@ export default function AboutTEDxIULPage() {
         <Link to="/" className="page-back-link">Home</Link>
 
         <div className="about-page-content">
+          <div className="about-layout">
+
+    <div className="about-text">
+
+    </div>
           <h2>Our <span className="accent">Story</span></h2>
           <p>
 TEDxIntegralUniversity marks the inaugural TEDx event hosted at Integral University, Lucknow. As the university's first independently organized TEDx experience, it represents a milestone in fostering meaningful conversations, bold ideas, and collaborative innovation.
@@ -49,6 +54,16 @@ Our vision is to cultivate a culture where curiosity fuels innovation, dialogue 
           </div>
         </div>
       </div>
+      </div>
+      <div className="about-image">
+
+    <img
+        src={tedxiulGraphic}
+        alt="TEDxIntegralUniversity"
+        className="about-large-image"
+    />
+
+</div>
 
       <Footer />
     </div>
