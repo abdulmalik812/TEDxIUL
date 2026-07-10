@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import tedxLogo from '../assets/tedx-logo.png';
+import tedxLogo from '../assets/tedx-logo-clean.svg';
 
 // Desktop nav items (after About dropdown)
 const NAV_LINKS = [

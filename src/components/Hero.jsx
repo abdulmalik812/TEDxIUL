@@ -1,5 +1,6 @@
 import './Hero.css';
 import lkoBg from '../assets/LKO.png';
+import tedxHeroLogo from '../assets/tedx-logo-clean.svg';
 
 export default function Hero() {
   return (
@@ -8,7 +9,7 @@ export default function Hero() {
       <div className="hero-overlay"></div>
       <div className="hero-content">
         <div className="hero-logo-row">
-          <span className="hl-ted">TED</span><span className="hl-x">x</span><span className="hl-org">Integral University</span>
+          <img src={tedxHeroLogo} alt="TEDxIntegralUniversity" className="hero-logo-img" />
         </div>
         <p className="hl-tagline">x = independently organized TED event</p>
         <h1 className="hero-title">TESSELLATION</h1>
