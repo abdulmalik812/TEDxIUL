@@ -32,8 +32,18 @@ body {
 }
 
 /* Ensure all sections sit above the fixed background layers */
-#hero, #countdown, #tickets, #about, #about-ted, #theme,
-#schedule, #speakers, #sponsors, #faq, #contact, footer {
+#hero,
+#countdown,
+#tickets,
+#about,
+#about-ted,
+#theme,
+#schedule,
+#speakers,
+#sponsors,
+#faq,
+#contact,
+footer {
   position: relative;
   z-index: 2;
 }
@@ -1257,6 +1267,11 @@ footer {
     font-size: 10px;
     margin-top: 6px;
     padding-top: 6px;
+  }
+
+  /* Hero: center logo on mobile (remove desktop offset) */
+  .hero-logo-row {
+    margin-left: 60px;
   }
 
   /* Hero: scale down TESSELLATION, desc, and CTA buttons */
