@@ -1,3 +1,4 @@
+"use client";
 import './FAQ.css';
 
 export default function FAQ({ hideHeader = false }) {

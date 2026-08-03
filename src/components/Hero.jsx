@@ -1,5 +1,6 @@
 import './Hero.css';
 import tedxHeroLogo from '../assets/tedx-logo-clean.svg';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
@@ -7,7 +8,7 @@ export default function Hero() {
       <canvas id="heroCanvas"></canvas>
       <div className="hero-content">
         <div className="hero-logo-row">
-          <img src={tedxHeroLogo} alt="TEDxIntegralUniversity" className="hero-logo-img" />
+          <Image unoptimized width={1200} height={800} src={tedxHeroLogo} alt="TEDxIntegralUniversity" className="hero-logo-img" />
         </div>
         <p className="hl-tagline">x = independently organized TED event</p>
         <h1 className="hero-title">TESSELLATION</h1>

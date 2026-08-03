@@ -1,7 +1,10 @@
+"use client";
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import './Navbar.css';
 import tedxLogo from '../assets/tedx-logo-clean.svg';
+import Image from 'next/image';
 
 // Desktop nav items (after About dropdown)
 const NAV_LINKS = [
@@ -26,7 +29,7 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const location    = useLocation();
+  const location    = usePathname();
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -71,8 +74,8 @@ export default function Navbar() {
     <>
       <nav className={menuOpen ? 'nav-open' : ''}>
         {/* Brand logo */}
-        <Link to="/" className="nav-brand" onClick={() => setMenuOpen(false)}>
-          <img
+        <Link href="/" className="nav-brand" onClick={() => setMenuOpen(false)}>
+          <Image unoptimized width={1200} height={800}
             src={tedxLogo}
             alt="TEDxIntegralUniversity logo"
             className="nav-logo-img"
@@ -82,7 +85,7 @@ export default function Navbar() {
         {/* Desktop links */}
         <ul className="nav-links">
           {/* Home */}
-          <li><Link to="/">Home</Link></li>
+          <li><Link href="/">Home</Link></li>
 
           {/* About dropdown */}
           <li
@@ -101,9 +104,8 @@ export default function Navbar() {
 
             <div className={`nav-dropdown-panel${dropdownOpen ? ' is-open' : ''}`} role="menu">
               {ABOUT_LINKS.map(({ label, to }) => (
-                <Link
-                  key={to}
-                  to={to}
+                <Link key={to}
+                  href={to}
                   className="nav-dropdown-link"
                   role="menuitem"
                   onClick={() => setDropdownOpen(false)}
@@ -117,7 +119,7 @@ export default function Navbar() {
           {/* Remaining links */}
           {NAV_LINKS.map(({ label, to }) => (
             <li key={label}>
-              <Link to={to}>{label}</Link>
+              <Link href={to}>{label}</Link>
             </li>
           ))}
         </ul>
@@ -150,7 +152,7 @@ export default function Navbar() {
             <ul className={`mobile-about-sub${mobileAboutOpen ? ' is-open' : ''}`}>
               {ABOUT_LINKS.map(({ label, to }) => (
                 <li key={to}>
-                  <Link to={to} onClick={handleMenuLinkClick}>{label}</Link>
+                  <Link href={to} onClick={handleMenuLinkClick}>{label}</Link>
                 </li>
               ))}
             </ul>
@@ -158,7 +160,7 @@ export default function Navbar() {
 
           {NAV_LINKS.map(({ label, to }) => (
             <li key={label}>
-              <Link to={to} onClick={handleMenuLinkClick}>{label}</Link>
+              <Link href={to} onClick={handleMenuLinkClick}>{label}</Link>
             </li>
           ))}
         </ul>

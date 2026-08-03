@@ -1,0 +1,817 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/Hero.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+/* ── Full-page scroll background layers ── */
+.homepage-wrapper {
+  position: relative;
+}
+
+.page-bg-layer {
+  position: fixed;
+  inset: -20px;
+  z-index: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  will-change: opacity, transform;
+  pointer-events: none;
+  animation: kenBurnsDrift 25s ease-in-out infinite alternate;
+}
+
+/* Stagger animation start for each layer so they don't move in sync */
+.page-bg-layer:nth-child(1) { animation-delay: 0s; }
+.page-bg-layer:nth-child(2) { animation-delay: -6s; animation-name: kenBurnsDrift2; }
+.page-bg-layer:nth-child(3) { animation-delay: -12s; animation-name: kenBurnsDrift3; }
+.page-bg-layer:nth-child(4) { animation-delay: -18s; animation-name: kenBurnsDrift2; }
+
+@keyframes kenBurnsDrift {
+  0%   { transform: scale(1.00) translate(0, 0); }
+  50%  { transform: scale(1.08) translate(-10px, -8px); }
+  100% { transform: scale(1.04) translate(6px, -4px); }
+}
+
+@keyframes kenBurnsDrift2 {
+  0%   { transform: scale(1.02) translate(5px, 0); }
+  50%  { transform: scale(1.10) translate(8px, -12px); }
+  100% { transform: scale(1.05) translate(-6px, -6px); }
+}
+
+@keyframes kenBurnsDrift3 {
+  0%   { transform: scale(1.04) translate(-4px, 4px); }
+  50%  { transform: scale(1.06) translate(10px, -6px); }
+  100% { transform: scale(1.08) translate(-8px, -10px); }
+}
+
+/* ── Atmospheric glow pulse ── */
+.page-bg-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 40%,
+      rgba(230, 43, 30, 0.08) 0%,
+      transparent 70%),
+    radial-gradient(ellipse 50% 40% at 70% 60%,
+      rgba(107, 63, 160, 0.06) 0%,
+      transparent 70%);
+  animation: glowPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  0%   { opacity: 0.4; transform: scale(1); }
+  50%  { opacity: 0.9; transform: scale(1.05); }
+  100% { opacity: 0.6; transform: scale(1.02); }
+}
+
+/* ── Floating particles ── */
+.page-bg-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(230, 43, 30, 0.5);
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+  opacity: 0;
+}
+
+.particle:nth-child(odd) {
+  background: rgba(107, 63, 160, 0.4);
+  width: 3px;
+  height: 3px;
+}
+
+.particle:nth-child(3n) {
+  background: rgba(255, 255, 255, 0.15);
+  width: 1.5px;
+  height: 1.5px;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(40px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* ── Subtle vignette for depth ── */
+.page-bg-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 50%,
+      transparent 30%,
+      rgba(5, 5, 16, 0.35) 100%);
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/Countdown.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/Tickets.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/About.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+.about-img-box {
+  width: 100%;
+  max-width: 650px;
+}
+
+.about-image {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(235, 0, 40, 0.15);
+}
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/AboutTed.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+/* ── ABOUT TED & TEDx ── */
+#about-ted {
+  padding: 0 48px 120px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+  gap: 40px;
+  position: relative;
+}
+
+.ted-card {
+  background: var(--gray);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.ted-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red), rgba(107, 63, 160, 0.8));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.ted-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(230, 43, 30, 0.4);
+  box-shadow: 0 12px 40px rgba(230, 43, 30, 0.08);
+}
+
+.ted-card:hover::after {
+  opacity: 1;
+}
+
+.ted-card-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.ted-card-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 2.5vw, 32px);
+  line-height: 1.25;
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+.ted-card-heading em {
+  font-style: italic;
+  color: var(--red);
+}
+
+.ted-card-body {
+  color: rgba(245, 240, 234, 0.55);
+  font-size: 14px;
+  line-height: 1.85;
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+
+.ted-card-btn {
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  #about-ted {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 24px 80px;
+  }
+  
+  .ted-card {
+    padding: 36px 24px;
+  }
+}
+
+.ted-intro {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ted-intro-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(245, 240, 234, 0.85);
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.ted-intro-text strong {
+  color: var(--red);
+  font-weight: 700;
+}
+
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/Theme.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/Schedule.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+.schedule-timeline-layout {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  grid-gap: 28px;
+  gap: 28px;
+  max-width: 828px;
+  margin: 60px auto 0;
+}
+
+.schedule-timeline-layout .timeline {
+  width: 100%;
+  max-width: 720px;
+  margin: 0;
+}
+
+.schedule-progress-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 112px;
+  display: flex;
+  height: min(520px, calc(100vh - 148px));
+  min-height: 360px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.schedule-led-strip {
+  display: block;
+  width: 32px;
+  height: 4px;
+  border-radius: 999px;
+  background: #1d1d1f;
+  box-shadow: 0 0 0 rgba(235, 0, 40, 0);
+  transition: all 0.2s ease;
+}
+
+.schedule-led-strip.active {
+  background: #eb0028;
+  box-shadow: 0 0 6px rgba(235, 0, 40, 0.85), 0 0 14px rgba(235, 0, 40, 0.4);
+}
+
+@media (max-width: 768px) {
+  .schedule-timeline-layout {
+    display: block;
+    margin-top: 44px;
+  }
+
+  .schedule-progress {
+    display: none;
+  }
+
+  .schedule-timeline-layout .timeline {
+    margin: 0 auto;
+  }
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/Speakers.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/Sponsors.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+
+/*!********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/FAQ.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************/
+#faq {
+  text-align: center;
+}
+
+.faq-main-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.faq-white {
+  color: var(--white);
+}
+
+.faq-red {
+  color: #ff2b2b;
+}
+
+.faq-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 60px;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/Venue.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+/* src/components/Venue.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap');
+
+#venue {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-weight: 300;
+  padding: 120px 48px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Background subtle glow similar to countdown/tickets */
+#venue::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(107, 63, 160, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.venue-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Eyebrow */
+.venue-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 44px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.venue-eyebrow.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.venue-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+  box-shadow: 0 0 10px var(--red);
+}
+
+.venue-eyebrow-text {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.venue-eyebrow-rule {
+  flex: 1 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Grid */
+.venue-split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  min-height: 480px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--gray);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+}
+
+.venue-split.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Map Section */
+.venue-map-container {
+  position: relative;
+  overflow: hidden;
+  background: #050510;
+  min-height: 350px;
+}
+
+.venue-map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  object-fit: cover;
+  filter: grayscale(1) brightness(0.4) contrast(1.25);
+  transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.venue-map-container:hover iframe {
+  filter: grayscale(0.2) brightness(0.7) contrast(1.05);
+}
+
+.venue-map-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(5, 5, 16, 0.4) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Premium corners on Map */
+.venue-map-corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 44px;
+  height: 44px;
+}
+
+.venue-map-corner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 44px;
+  background: var(--red);
+}
+
+.venue-map-corner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 2px;
+  background: var(--red);
+}
+
+.venue-map-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.venue-map-pill {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245, 240, 234, 0.85);
+  background: rgba(5, 5, 16, 0.85);
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  border-radius: 2px;
+}
+
+.venue-map-coords {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+/* Info Panel */
+.venue-panel {
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  background: var(--gray);
+  overflow: hidden;
+}
+
+.venue-panel-top {
+  padding: 36px 36px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.venue-panel-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 12px;
+}
+
+.venue-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.venue-panel-logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+}
+
+.venue-panel-title-text {
+  flex: 1 1;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+.venue-panel-title strong {
+  font-weight: 700;
+}
+
+.venue-panel-sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+/* Description paragraph (bio) */
+.venue-panel-desc {
+  padding: 24px 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: rgba(245, 240, 234, 0.65);
+  font-weight: 400;
+}
+
+/* Stats (Capacity & Campus) */
+.venue-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.venue-stat {
+  padding: 20px 36px;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.venue-stat:last-child {
+  border-right: none;
+}
+
+.venue-stat-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.venue-stat-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+/* Meta list rows */
+.venue-meta {
+  flex: 1 1;
+}
+
+.venue-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.venue-meta-row:last-child {
+  border-bottom: none;
+}
+
+.venue-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.venue-meta-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--red);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.venue-meta-key {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.venue-meta-val {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--white);
+  text-align: right;
+}
+
+/* Call to Action button */
+.venue-cta-wrap {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.venue-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 36px;
+  background: transparent;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.venue-cta:hover {
+  background: rgba(230, 43, 30, 0.06);
+  color: var(--white);
+}
+
+.venue-cta:hover .venue-cta-arrow {
+  transform: translateX(6px);
+  color: var(--red);
+}
+
+.venue-cta-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.venue-cta-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 8px var(--red);
+}
+
+.venue-cta-arrow {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.35);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive adjustment */
+@media (max-width: 992px) {
+  #venue {
+    padding: 80px 24px;
+  }
+
+  .venue-split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .venue-panel {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+}
+
+@media (max-width: 576px) {
+  .venue-map-container {
+    height: 280px;
+    min-height: 280px;
+  }
+
+  .venue-panel-top,
+  .venue-panel-desc,
+  .venue-stat,
+  .venue-meta-row,
+  .venue-cta {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .venue-map-footer {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .venue-map-coords {
+    display: none;
+  }
+
+  .venue-panel-title {
+    font-size: 26px;
+  }
+
+  .venue-panel-logo {
+    width: 44px;
+    height: 44px;
+  }
+}
+/*!************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/Contact.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************/
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./src/components/Footer.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+
