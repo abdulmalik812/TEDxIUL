@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Venue.css';
 import universityLogo from '../assets/IUL.jpg';
-import Image from 'next/image';
 
 // SVG icons — inline so zero deps
 const IconPin = () => (
@@ -78,7 +77,7 @@ function Panel({ venue }) {
       <div className="venue-panel-top">
         <p className="venue-panel-tag">{venue.subtitle}</p>
         <h2 className="venue-panel-title">
-          <Image unoptimized width={1200} height={800} src={universityLogo} alt="Integral University Logo" className="venue-panel-logo" />
+          <img src={universityLogo.src || universityLogo} alt="Integral University Logo" className="venue-panel-logo" />
           <span className="venue-panel-title-text">
             <strong>{venue.titleStrong} {venue.titleEm}</strong>
           </span>

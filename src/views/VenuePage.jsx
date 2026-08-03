@@ -9,7 +9,6 @@ import imgTrain from '../assets/Charbagh.png';
 import imgBus from '../assets/Alambagh.png';
 import imgMetro from '../assets/Metro.png';
 import imgCampus from '../assets/IULawn.jpg';
-import Image from 'next/image';
 
 /* ─────────────────────────────────────────────
    Travel card data (5 modes including personal)
@@ -161,7 +160,7 @@ export default function VenuePage() {
             {TRANSPORT.map((t) => (
               <div key={t.id} className="venue-travel-card" id={`travel-card-${t.id}`}>
                 <div className="venue-travel-card-img-wrap">
-                  <Image unoptimized width={1200} height={800} src={t.img} alt={t.imgAlt} className="venue-travel-card-img" />
+                  <img src={t.img.src || t.img} alt={t.imgAlt} className="venue-travel-card-img" />
                   <div className="venue-travel-card-img-overlay" />
                   <div className="venue-travel-card-mode-badge">
                     <span className="venue-travel-card-icon">{t.icon}</span>

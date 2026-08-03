@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Footer from '../components/Footer';
 import './pages.css';
-import Image from 'next/image';
 
 const SPEAKERS = [
   {
@@ -82,7 +81,7 @@ export default function SpeakersPage() {
             <div key={speaker.id} className="speaker-card">
               <div className="speaker-card-photo">
                 {speaker.photo ? (
-                  <Image unoptimized width={1200} height={800} src={speaker.photo} alt={speaker.name} />
+                  <img src={speaker.photo.src || speaker.photo} alt={speaker.name} />
                 ) : (
                   <div className="speaker-card-photo-placeholder">
                     <PersonIcon />

@@ -1,7 +1,6 @@
 
 import tedxNetwork from '../assets/tedx-network.png';
 import './About.css';
-import Image from 'next/image';
 
 export default function About() {
   return (
@@ -22,11 +21,7 @@ export default function About() {
         </a>
       </div>
       <div className="about-img-box">
-  <Image unoptimized width={1200} height={800}
-    src={tedxNetwork}
-    alt="TEDxIUL Network"
-    className="about-image"
-  />
+  <img src={tedxNetwork.src || tedxNetwork} alt="TEDxIUL Network" className="about-image" />
 </div>
     </section>
   );

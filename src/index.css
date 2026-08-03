@@ -78,46 +78,6 @@ nav {
   display: block;
 }
 
-.nav-ted {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 26px;
-  color: var(--red);
-  letter-spacing: 1px;
-}
-
-.nav-x {
-  font-size: 10px;
-  color: var(--red);
-  vertical-align: super;
-  margin-right: 6px;
-}
-
-.nav-org {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--white);
-  letter-spacing: 1.5px;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
-}
-
-.nav-links a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover {
-  color: var(--white);
-}
 
 
 /* ── HERO ── */
@@ -1152,10 +1112,6 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
-  nav {
-    padding: 14px 20px;
-  }
-
   /* Hero: mobile background treatment (Option A) */
   #hero {
     min-height: 95svh;
