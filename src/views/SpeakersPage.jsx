@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import Footer from '../components/Footer';
 import './pages.css';
+import Image from 'next/image';
 
 const SPEAKERS = [
   {
@@ -74,14 +75,14 @@ export default function SpeakersPage() {
       </div>
 
       <div className="page-wrap">
-        <Link to="/" className="page-back-link">Home</Link>
+        <Link href="/" className="page-back-link">Home</Link>
 
         <div className="speakers-page-grid">
           {SPEAKERS.map((speaker) => (
             <div key={speaker.id} className="speaker-card">
               <div className="speaker-card-photo">
                 {speaker.photo ? (
-                  <img src={speaker.photo} alt={speaker.name} />
+                  <Image unoptimized width={1200} height={800} src={speaker.photo} alt={speaker.name} />
                 ) : (
                   <div className="speaker-card-photo-placeholder">
                     <PersonIcon />
@@ -105,7 +106,7 @@ export default function SpeakersPage() {
           <p style={{ color: 'var(--text-muted)', fontSize: '14px', marginBottom: '20px' }}>
             Speaker announcements coming soon — follow us for updates.
           </p>
-          <Link to="/register" className="btn-primary">Register to Attend</Link>
+          <Link href="/register" className="btn-primary">Register to Attend</Link>
         </div>
       </div>
 

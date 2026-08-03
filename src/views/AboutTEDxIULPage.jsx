@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import Footer from '../components/Footer';
 import './pages.css';
 import tedxiulGraphic from "../assets/tedx-network.png";
+import Image from 'next/image';
 
 export default function AboutTEDxIULPage() {
   return (
@@ -15,7 +16,7 @@ export default function AboutTEDxIULPage() {
       </div>
 
       <div className="page-wrap">
-        <Link to="/" className="page-back-link">Home</Link>
+        <Link href="/" className="page-back-link">Home</Link>
 
         <div className="about-page-content">
           <div className="about-layout">
@@ -72,15 +73,15 @@ export default function AboutTEDxIULPage() {
               </p>
 
               <div className="about-cta-row">
-                <Link to="/speakers" className="btn-primary">Meet the Speakers</Link>
-                <Link to="/register" className="btn-outline">Register Now</Link>
+                <Link href="/speakers" className="btn-primary">Meet the Speakers</Link>
+                <Link href="/register" className="btn-outline">Register Now</Link>
               </div>
 
             </div>
 
             {/* RIGHT — image */}
             <div className="about-image">
-              <img
+              <Image unoptimized width={1200} height={800}
                 src={tedxiulGraphic}
                 alt="TEDxIntegralUniversity"
                 className="about-large-image"

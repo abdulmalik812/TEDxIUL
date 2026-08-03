@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import Venue from '../components/Venue';
 import Footer from '../components/Footer';
 import './pages.css';
@@ -9,6 +9,7 @@ import imgTrain from '../assets/Charbagh.png';
 import imgBus from '../assets/Alambagh.png';
 import imgMetro from '../assets/Metro.png';
 import imgCampus from '../assets/IULawn.jpg';
+import Image from 'next/image';
 
 /* ─────────────────────────────────────────────
    Travel card data (5 modes including personal)
@@ -160,7 +161,7 @@ export default function VenuePage() {
             {TRANSPORT.map((t) => (
               <div key={t.id} className="venue-travel-card" id={`travel-card-${t.id}`}>
                 <div className="venue-travel-card-img-wrap">
-                  <img src={t.img} alt={t.imgAlt} className="venue-travel-card-img" />
+                  <Image unoptimized width={1200} height={800} src={t.img} alt={t.imgAlt} className="venue-travel-card-img" />
                   <div className="venue-travel-card-img-overlay" />
                   <div className="venue-travel-card-mode-badge">
                     <span className="venue-travel-card-icon">{t.icon}</span>
@@ -252,7 +253,7 @@ export default function VenuePage() {
 
       {/* ── BACK LINK ── */}
       <div className="page-wrap" style={{ paddingTop: '0', paddingBottom: '48px' }}>
-        <Link to="/" className="page-back-link">Home</Link>
+        <Link href="/" className="page-back-link">Home</Link>
       </div>
 
       <Footer />

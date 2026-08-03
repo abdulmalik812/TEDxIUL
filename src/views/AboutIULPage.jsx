@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import Footer from '../components/Footer';
 import './pages.css';
 import iulCampus from "../assets/IUL-Image.png";
+import Image from 'next/image';
 
 export default function AboutIULPage() {
   return (
@@ -18,7 +19,7 @@ export default function AboutIULPage() {
       </div>
 
       <div className="page-wrap">
-        <Link to="/" className="page-back-link">
+        <Link href="/" className="page-back-link">
           Home
         </Link>
 
@@ -98,7 +99,7 @@ export default function AboutIULPage() {
                   Visit IUL Website
                 </a>
 
-                <Link to="/venue" className="btn-primary">
+                <Link href="/venue" className="btn-primary">
                   Venue &amp; Directions
                 </Link>
               </div>
@@ -107,7 +108,7 @@ export default function AboutIULPage() {
 
             {/* RIGHT SIDE */}
             <div className="about-image">
-              <img
+              <Image unoptimized width={1200} height={800}
                 src={iulCampus}
                 alt="Integral University"
                 className="about-large-image"

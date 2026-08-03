@@ -1,4 +1,5 @@
-import { useEffect, useRef, useMemo } from 'react';
+"use client";
+import { useEffect, useRef, useState } from 'react';
 import Hero from '../components/Hero';
 import Countdown from '../components/Countdown';
 import Tickets from '../components/Tickets';
@@ -23,16 +24,20 @@ const splitImages = [split1, split2, split3, split4];
 export default function HomePage() {
   const bgRefs = useRef([]);
 
-  // Generate random particles once
-  const particles = useMemo(() =>
-    Array.from({ length: 20 }, (_, i) => ({
-      id: i,
-      left: `${Math.random() * 100}%`,
-      duration: `${12 + Math.random() * 18}s`,
-      delay: `${Math.random() * 15}s`,
-      size: `${1.5 + Math.random() * 2.5}px`,
-    })),
-  []);
+  const [particles, setParticles] = useState([]);
+
+  // Generate random particles only on the client after mount to prevent hydration mismatch
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        left: `${Math.random() * 100}%`,
+        duration: `${12 + Math.random() * 18}s`,
+        delay: `${Math.random() * 15}s`,
+        size: `${1.5 + Math.random() * 2.5}px`,
+      }))
+    );
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {

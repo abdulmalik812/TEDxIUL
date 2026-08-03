@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import Footer from '../components/Footer';
 import './pages.css';
+import Image from 'next/image';
 
 export default function TeamPage() {
   return (
@@ -52,7 +53,7 @@ export default function TeamPage() {
     <div className="team-grid">
 <div className="team-card">
 
-    <img
+    <Image unoptimized width={1200} height={800}
         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600"
         alt="Reem Hamraz"
         className="team-image"
@@ -77,7 +78,7 @@ export default function TeamPage() {
 </div>
 <div className="team-card">
 
-    <img
+    <Image unoptimized width={1200} height={800}
         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600"
         alt="Mohamad Maaz Siddiqui"
         className="team-image"
@@ -124,7 +125,7 @@ export default function TeamPage() {
     <div className="team-grid">
       <div className="team-card">
 
-    <img
+    <Image unoptimized width={1200} height={800}
         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600"
         alt="Aliyah Mohammad Azam"
         className="team-image"
@@ -148,7 +149,7 @@ export default function TeamPage() {
 </div>
  <div className="team-card">
 
-    <img
+    <Image unoptimized width={1200} height={800}
         src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600"
         alt="Arif Sheikh"
         className="team-image"
@@ -172,7 +173,7 @@ export default function TeamPage() {
 </div>
 <div className="team-card">
     
-    <img
+    <Image unoptimized width={1200} height={800}
         src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600"
         alt="Mohammad Ayaan Mujeeb"
         className="team-image"
@@ -196,7 +197,7 @@ export default function TeamPage() {
 </div>
 <div className="team-card">
     
-    <img
+    <Image unoptimized width={1200} height={800}
        src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=600"
         alt="Haider Maseeh"
         className="team-image"
@@ -220,7 +221,7 @@ export default function TeamPage() {
 </div>
 <div className="team-card">
     
-    <img
+    <Image unoptimized width={1200} height={800}
         src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600"
         alt="Jamiz Qamar"
         className="team-image"

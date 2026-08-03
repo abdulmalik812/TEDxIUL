@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import Footer from '../components/Footer';
 import './pages.css';
 import tedStage from "../assets/ted-stage.png";
+import Image from 'next/image';
 
 export default function AboutTEDxPage() {
   return (
@@ -15,7 +16,7 @@ export default function AboutTEDxPage() {
       </div>
 
       <div className="page-wrap">
-        <Link to="/" className="page-back-link">Home</Link>
+        <Link href="/" className="page-back-link">Home</Link>
 
         <div className="about-page-content">
           <div className="about-layout">
@@ -76,7 +77,7 @@ export default function AboutTEDxPage() {
                 >
                   Explore the TEDx Program
                 </a>
-                <Link to="/about/tedxiul" className="btn-primary">
+                <Link href="/about/tedxiul" className="btn-primary">
                   About TEDxIntegralUniversity
                 </Link>
               </div>
@@ -84,7 +85,7 @@ export default function AboutTEDxPage() {
 
             {/* RIGHT — image */}
             <div className="about-image">
-              <img
+              <Image unoptimized width={1200} height={800}
                 src={tedStage}
                 alt="TEDx Event"
                 className="about-large-image"

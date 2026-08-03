@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import Footer from '../components/Footer';
 import universityLogo from '../assets/IUL.jpg';
 import './pages.css';
+import Image from 'next/image';
 
 const SPONSORS = [
   {
@@ -50,7 +51,7 @@ export default function SponsorsPage() {
       </div>
 
       <div className="page-wrap">
-        <Link to="/" className="page-back-link">Home</Link>
+        <Link href="/" className="page-back-link">Home</Link>
 
         <div className="sponsors-page-grid">
           {SPONSORS.map((sponsor) => (
@@ -59,7 +60,7 @@ export default function SponsorsPage() {
               className={`sponsor-card${sponsor.featured ? ' featured' : ''}`}
             >
               {sponsor.logo ? (
-                <img
+                <Image unoptimized width={1200} height={800}
                   src={sponsor.logo}
                   alt={`${sponsor.name} logo`}
                   className="sponsor-card-logo"
