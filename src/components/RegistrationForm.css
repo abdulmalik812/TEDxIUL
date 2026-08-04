@@ -1,0 +1,283 @@
+.input-group select{
+    background:#222;
+    color:white;
+    border:1px solid #333;
+    border-radius:10px;
+    padding:14px;
+    font-size:16px;
+    outline:none;
+    transition:.3s;
+}
+.input-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:26px;
+}
+.radio-group{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:45px;
+    margin-top:18px;
+    flex-wrap:wrap;
+}
+
+.radio-group label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    background:#242424;
+    border:1px solid #333;
+
+    padding:14px 22px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+.radio-group label:hover{
+    border-color:#e62b1e;
+    background:#2c2c2c;
+    transform:translateY(-2px);
+}
+
+.radio-group input{
+    accent-color:#e62b1e;
+}
+.input-group select{
+    background:#222;
+    color:white;
+
+    border:1px solid #333;
+
+    border-radius:10px;
+
+    padding:14px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus{
+
+    border-color:#EB0028;
+
+    box-shadow:0 0 0 4px rgba(235,0,40,.15);
+
+}
+.register-btn{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#EB0028;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+.register-btn:hover{
+
+    transform:translateY(-2px);
+
+    background:#ff173d;
+
+    box-shadow:0 12px 30px rgba(235,0,40,.35);
+
+}
+
+.register-btn:active{
+    transform:scale(.98);
+}
+.required{
+    color:#e62b1e;
+    margin-left:3px;
+}
+.form-note{
+    text-align:center;
+    color:#9a9a9a;
+    margin-top:-10px;
+    margin-bottom:35px;
+    font-size:14px;
+}
+.privacy-note{
+    margin-top:20px;
+    text-align:center;
+    font-size:13px;
+    color:#8d8d8d;
+    line-height:1.6;
+}
+.form-card{
+    width:700px;
+    max-width:95%;
+    margin:auto;
+    background:#171717;
+    border-radius:18px;
+    padding:45px;
+    border:1px solid #2d2d2d;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+.input-group input:hover,
+.input-group select:hover{
+    border-color:#555;
+}
+.input-group input,
+.input-group select,
+.input-group textarea{
+
+    width:100%;
+    padding:15px 16px;
+
+    border-radius:12px;
+
+    border:1px solid #303030;
+
+    background:#232323;
+
+    color:white;
+
+    font-size:15px;
+
+    transition:.25s;
+
+    outline:none;
+
+}
+
+.success-message{
+    background:#0f5132;
+    color:#d1ffe8;
+    border:1px solid #198754;
+    padding:14px;
+    border-radius:10px;
+    margin-bottom:20px;
+    text-align:center;
+    font-weight:600;
+}
+.input-group label{
+    margin-bottom:10px;
+    font-size:15px;
+    font-weight:600;
+    color:#f2f2f2;
+}
+input::placeholder,
+textarea::placeholder{
+
+    color:#8b8b8b;
+
+}
+
+/* Vite HeroSection styles appended */
+.hero-section{
+    flex: 1;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.75),
+            rgba(0,0,0,0.80)
+        ),
+        url("https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content{
+    max-width: 650px;
+}
+
+.hero-content h1{
+    font-size: 46px;
+    margin-bottom: 10px;
+}
+
+.hero-content h1 span{
+    color:#EB0028;
+}
+
+.hero-tagline{
+    color:#EB0028;
+    text-transform: uppercase;
+    letter-spacing:3px;
+    font-size:14px;
+    margin-bottom:30px;
+    font-weight:600;
+}
+
+.hero-content h2{
+    font-size:52px;
+    line-height:1.15;
+    margin-bottom:25px;
+}
+
+.hero-description{
+    color:#d0d0d0;
+    line-height:1.8;
+    margin-bottom:40px;
+    font-size:17px;
+}
+
+.hero-details{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    margin-bottom:40px;
+}
+
+.detail{
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+}
+
+.detail span{
+    font-size:28px;
+}
+
+.detail h4{
+    color:#EB0028;
+    margin-bottom:4px;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.detail p{
+    color:white;
+    font-size:17px;
+}
+
+.event-status{
+    display:inline-block;
+    padding:14px 28px;
+    background:#EB0028;
+    color:white;
+    border-radius:30px;
+    font-weight:700;
+    box-shadow:0 10px 30px rgba(235,0,40,.35);
+}
