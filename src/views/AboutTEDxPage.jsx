@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Footer from '../components/Footer';
 import './pages.css';
 import tedStage from "../assets/ted-stage.png";
-import Image from 'next/image';
 
 export default function AboutTEDxPage() {
   return (
@@ -85,11 +84,7 @@ export default function AboutTEDxPage() {
 
             {/* RIGHT — image */}
             <div className="about-image">
-              <Image unoptimized width={1200} height={800}
-                src={tedStage}
-                alt="TEDx Event"
-                className="about-large-image"
-              />
+              <img src={tedStage.src || tedStage} alt="TEDx Event" className="about-large-image" />
               <div className="about-image-overlay">
                 <h3>TEDx</h3>
                 <p>Ideas Worth Spreading</p>

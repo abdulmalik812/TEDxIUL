@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Footer from '../components/Footer';
 import './pages.css';
 import iulCampus from "../assets/IUL-Image.png";
-import Image from 'next/image';
 
 export default function AboutIULPage() {
   return (
@@ -108,11 +107,7 @@ export default function AboutIULPage() {
 
             {/* RIGHT SIDE */}
             <div className="about-image">
-              <Image unoptimized width={1200} height={800}
-                src={iulCampus}
-                alt="Integral University"
-                className="about-large-image"
-              />
+              <img src={iulCampus.src || iulCampus} alt="Integral University" className="about-large-image" />
             </div>
 
           </div>

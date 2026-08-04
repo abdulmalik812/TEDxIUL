@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import './Navbar.css';
 import tedxLogo from '../assets/tedx-logo-clean.svg';
-import Image from 'next/image';
 
 // Desktop nav items (after About dropdown)
 const NAV_LINKS = [
@@ -75,11 +74,7 @@ export default function Navbar() {
       <nav className={menuOpen ? 'nav-open' : ''}>
         {/* Brand logo */}
         <Link href="/" className="nav-brand" onClick={() => setMenuOpen(false)}>
-          <Image unoptimized width={1200} height={800}
-            src={tedxLogo}
-            alt="TEDxIntegralUniversity logo"
-            className="nav-logo-img"
-          />
+          <img src={tedxLogo.src || tedxLogo} alt="TEDxIntegralUniversity logo" className="nav-logo-img" />
         </Link>
 
         {/* Desktop links */}

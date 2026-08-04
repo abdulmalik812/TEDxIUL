@@ -99,7 +99,7 @@ export default function HomePage() {
           ref={(el) => (bgRefs.current[index] = el)}
           className="page-bg-layer"
           style={{
-            backgroundImage: `url(${src})`,
+            backgroundImage: `url("${src?.src || src}")`,
             opacity: index === 0 ? 1 : 0,
           }}
         />
