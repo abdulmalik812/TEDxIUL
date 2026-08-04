@@ -1,0 +1,111 @@
+#tickets {
+  padding: 5rem 1.5rem;
+}
+
+.tickets-sub {
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tickets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ticket-card {
+  background: linear-gradient(145deg, rgba(7, 8, 20, 0.92), rgba(25, 16, 40, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  position: relative;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+}
+
+.ticket-card.featured {
+  transform: translateY(-6px);
+  border-color: rgba(230, 43, 30, 0.45);
+  box-shadow: 0 18px 44px rgba(230, 43, 30, 0.22);
+}
+
+.ticket-ribbon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(90deg, #e62b1e, #7b3fe4);
+  color: white;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.ticket-header {
+  margin-bottom: 1rem;
+}
+
+.ticket-type {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: white;
+}
+
+.ticket-price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.ticket-period {
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 0.6rem;
+}
+
+.ticket-description {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.ticket-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.16);
+  margin: 1rem 0;
+}
+
+.ticket-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ticket-features li {
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.tick {
+  color: #ff6b4a;
+  font-weight: 700;
+}
+
+.ticket-btn {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .tickets-grid {
+    grid-template-columns: 1fr;
+  }
+}

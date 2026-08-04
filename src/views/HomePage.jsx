@@ -46,41 +46,30 @@ export default function HomePage() {
 
       // scrollProgress: 0 at top, 1 at bottom of page
       const scrollProgress = docHeight > 0 ? Math.min(Math.max(scrollTop / docHeight, 0), 1) : 0;
-
       const totalImages = splitImages.length;
-      const zoneSize = 1 / totalImages;
+      const segmentProgress = scrollProgress * (totalImages - 1);
+      const currentIndex = Math.min(Math.floor(segmentProgress), totalImages - 1);
+      const nextIndex = Math.min(currentIndex + 1, totalImages - 1);
+      const blend = segmentProgress - currentIndex;
 
       bgRefs.current.forEach((bg, index) => {
         if (!bg) return;
 
-        const zoneStart = index * zoneSize;
-        const zoneEnd = (index + 1) * zoneSize;
-
         let opacity = 0;
 
-        if (scrollProgress >= zoneStart && scrollProgress < zoneEnd) {
-          const zoneProgress = (scrollProgress - zoneStart) / zoneSize;
+        if (index === currentIndex) {
+          opacity = 1 - blend;
+        } else if (index === nextIndex) {
+          opacity = blend;
+        }
 
-          if (index === 0) {
-            opacity = 1 - Math.max(0, (zoneProgress - 0.6) / 0.4);
-          } else if (index === totalImages - 1) {
-            opacity = Math.min(1, zoneProgress / 0.4);
-          } else {
-            if (zoneProgress < 0.3) {
-              opacity = zoneProgress / 0.3;
-            } else if (zoneProgress > 0.7) {
-              opacity = 1 - (zoneProgress - 0.7) / 0.3;
-            } else {
-              opacity = 1;
-            }
-          }
-        } else if (scrollProgress < zoneStart) {
+        if (scrollProgress <= 0) {
           opacity = index === 0 ? 1 : 0;
-        } else {
+        } else if (scrollProgress >= 1) {
           opacity = index === totalImages - 1 ? 1 : 0;
         }
 
-        bg.style.opacity = opacity;
+        bg.style.opacity = opacity.toFixed(3);
       });
     };
 
