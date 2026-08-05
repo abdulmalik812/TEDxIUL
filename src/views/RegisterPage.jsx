@@ -367,7 +367,7 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            <MagneticButton onClick={() => activePass && window.open(activePass.link, '_blank')} />
+            <MagneticButton onClick={() => activePass && window.open(`/register/form?pass=${activePass.key}`, '_blank')} />
           </div>
         </div>
       </div>
