@@ -2,66 +2,42 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import toast, { Toaster } from 'react-hot-toast';
+import auditorium from '../assets/auditorium.png';
 import './RegistrationForm.css';
 
 function HeroSection() {
-    return (
-
-        <section className="hero-section">
-
-            <div className="hero-content">
-
-  <h1>
-  <span>TEDx</span>IntegralUniversity
-</h1>
-
-<p className="hero-tagline">
-  IDEAS WORTH SPREADING
-</p>
-
-<h2>
-  Register for
-  <br />
-  TEDxIntegralUniversity
-</h2>
-
-<p className="hero-description">
-  Join innovators, researchers, entrepreneurs and creators for an inspiring TEDx experience.
-</p>
-
-<div className="hero-details">
-
-  <div className="detail">
-    <div>
-      <h4>Venue</h4>
-      <p>Integral University</p>
-    </div>
-  </div>
-
-  <div className="detail">
-    <div>
-      <h4>Date</h4>
-      <p>Coming Soon</p>
-    </div>
-  </div>
-
-  <div className="detail">
-    <div>
-      <h4>Theme</h4>
-      <p>TESSELLATION</p>
-    </div>
-  </div>
-
-</div>
-
-  <div className="event-status">
-    Reserve Your Seat
-  </div>
-</div>
-
-        </section>
-
-    );
+  return (
+    <section className="registration-hero">
+      <img src={auditorium.src} alt="Auditorium background" className="hero-bg-image" />
+      <div className="hero-overlay" />
+      <div className="hero-inner">
+        <div className="brand-logo">
+          <span className="brand-red">TEDx</span>
+          <span className="brand-white">IntegralUniversity</span>
+        </div>
+        <p className="hero-tagline">IDEAS WORTH SPREADING</p>
+        <h1>Register</h1>
+        <p className="hero-copy">
+          Join innovators, researchers, entrepreneurs and creators for an inspiring TEDx experience.
+        </p>
+        <div className="hero-meta">
+          <div className="meta-item">
+            <span className="meta-label">VENUE</span>
+            <span className="meta-value">Integral University</span>
+          </div>
+          <div className="meta-item">
+            <span className="meta-label">DATE</span>
+            <span className="meta-value">26th September 2026</span>
+          </div>
+          <div className="meta-item">
+            <span className="meta-label">THEME</span>
+            <span className="meta-value">TESSELLATION</span>
+          </div>
+        </div>
+        <button className="hero-cta">Reserve Your Seat</button>
+      </div>
+    </section>
+  );
 }
 
 export default function RegistrationForm() {
@@ -72,7 +48,7 @@ export default function RegistrationForm() {
     fullName: '',
     email: '',
     phone: '',
-    ticketType: passParam ? passParam : '',
+    ticketType: passParam || '',
     category: '',
     organization: '',
     industry: '',
@@ -83,8 +59,9 @@ export default function RegistrationForm() {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    // If search param changes, keep ticketType in sync
-    if (passParam) setFormData((p) => ({ ...p, ticketType: passParam }));
+    if (passParam) {
+      setFormData((prev) => ({ ...prev, ticketType: passParam }));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [passParam]);
 
@@ -93,8 +70,12 @@ export default function RegistrationForm() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleCategory = (value) => {
+    setFormData((prev) => ({ ...prev, category: value }));
+  };
+
   const validateForm = () => {
-    let newErrors = {};
+    const newErrors = {};
     if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
     if (!formData.email.trim()) newErrors.email = 'Email is required';
     else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Enter a valid email address';
@@ -128,111 +109,172 @@ export default function RegistrationForm() {
   };
 
   return (
-    <div>
+    <div className="registration-page">
       <HeroSection />
-      <div style={{ padding: '48px 24px' }}>
-      <div className="form-card">
-      <Toaster
-        position="top-right"
-        toastOptions={{
-          style: {
-            background: '#171717',
-            color: '#fff',
-            border: '1px solid #EB0028',
-          },
-        }}
-      />
-
-      <h3>Registration Form</h3>
-      {success && <div className="success-message">✅ Registration submitted successfully!</div>}
-
-      <p className="form-note">Fields marked with <span className="required">*</span> are required.</p>
-
-      <form onSubmit={handleSubmit}>
-        <div className="input-group">
-          <label>Full Name <span className="required">*</span></label>
-          <input name="fullName" value={formData.fullName} onChange={handleChange} placeholder="Enter your full name" />
-          {errors.fullName && <p className="error">{errors.fullName}</p>}
-        </div>
-
-        <div className="input-group">
-          <label>Email Address <span className="required">*</span></label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email address" />
-          {errors.email && <p className="error">{errors.email}</p>}
-        </div>
-
-        <div className="input-group">
-          <label>Phone Number <span className="required">*</span></label>
-          <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Enter your phone number" />
-          {errors.phone && <p className="error">{errors.phone}</p>}
-        </div>
-
-        <div className="input-group">
-          <label>Ticket Type <span className="required">*</span></label>
-          <select name="ticketType" value={formData.ticketType} onChange={handleChange}>
-            <option value="">Select Ticket Type</option>
-            <option value="general">General Pass</option>
-            <option value="early">VIP / Early Pass</option>
-            <option value="student">Student Pass</option>
-          </select>
-          {errors.ticketType && <p className="error">{errors.ticketType}</p>}
-        </div>
-
-        <div className="input-group">
-          <label>Category <span className="required">*</span></label>
-          <div className="radio-group">
-            <label><input type="radio" name="category" value="Student" checked={formData.category === 'Student'} onChange={handleChange} /> Student</label>
-            <label><input type="radio" name="category" value="Teacher" checked={formData.category === 'Teacher'} onChange={handleChange} /> Teacher</label>
-            <label><input type="radio" name="category" value="Professional" checked={formData.category === 'Professional'} onChange={handleChange} /> Professional</label>
+      <main className="registration-form-panel">
+        <div className="form-shell">
+          <div className="form-header">
+            <p className="form-subtitle">Secure your seat</p>
+            <h2>Registration Form</h2>
+            <p className="form-description">
+              Complete the details below to confirm your TEDxIntegralUniversity pass.
+            </p>
           </div>
-          {errors.category && <p className="error">{errors.category}</p>}
+
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              style: {
+                background: '#121212',
+                color: '#fff',
+                border: '1px solid #E62B1E',
+              },
+            }}
+          />
+
+          {success && <div className="success-message">✅ Registration submitted successfully!</div>}
+
+          <form className="registration-form" onSubmit={handleSubmit}>
+            <div className="form-row">
+              <label>
+                Full Name <span className="required">*</span>
+                <input
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  placeholder="Enter your full name"
+                />
+              </label>
+              {errors.fullName && <span className="field-error">{errors.fullName}</span>}
+            </div>
+
+            <div className="form-row">
+              <label>
+                Email Address <span className="required">*</span>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Enter your email address"
+                />
+              </label>
+              {errors.email && <span className="field-error">{errors.email}</span>}
+            </div>
+
+            <div className="form-row">
+              <label>
+                Phone Number <span className="required">*</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Enter your phone number"
+                />
+              </label>
+              {errors.phone && <span className="field-error">{errors.phone}</span>}
+            </div>
+
+            <div className="form-row">
+              <label>
+                Ticket Type <span className="required">*</span>
+                <select name="ticketType" value={formData.ticketType} onChange={handleChange}>
+                  <option value="">Select Ticket Type</option>
+                  <option value="general">General Pass</option>
+                  <option value="early">VIP Pass</option>
+                  <option value="student">Student Pass</option>
+                </select>
+              </label>
+              {errors.ticketType && <span className="field-error">{errors.ticketType}</span>}
+            </div>
+
+            <div className="form-row">
+              <div className="field-label-row">
+                <span>Category</span>
+                <span className="required">*</span>
+              </div>
+              <div className="category-pills">
+                {['Student', 'Teacher', 'Professional'].map((option) => (
+                  <button
+                    key={option}
+                    type="button"
+                    className={`pill ${formData.category === option ? 'active' : ''}`}
+                    onClick={() => handleCategory(option)}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+              {errors.category && <span className="field-error">{errors.category}</span>}
+            </div>
+
+            <div className="form-row">
+              <label>
+                School / University / Company <span className="required">*</span>
+                <input
+                  name="organization"
+                  value={formData.organization}
+                  onChange={handleChange}
+                  placeholder="Enter your organization"
+                />
+              </label>
+              {errors.organization && <span className="field-error">{errors.organization}</span>}
+            </div>
+
+            <div className="form-row">
+              <label>
+                Industry / Domain <span className="required">*</span>
+                <select name="industry" value={formData.industry} onChange={handleChange}>
+                  <option value="">Select Industry</option>
+                  <option value="Technology">Technology</option>
+                  <option value="Healthcare">Healthcare</option>
+                  <option value="Education">Education</option>
+                  <option value="Engineering">Engineering</option>
+                  <option value="Business">Business</option>
+                  <option value="Research">Research</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+              {errors.industry && <span className="field-error">{errors.industry}</span>}
+            </div>
+
+            <div className="form-row">
+              <label>
+                Special Requirements
+                <textarea
+                  name="specialRequirements"
+                  value={formData.specialRequirements}
+                  onChange={handleChange}
+                  rows={5}
+                  placeholder="Mention accessibility or any special requirements"
+                />
+              </label>
+            </div>
+
+            <div className="form-row">
+              <label>
+                How did you hear about TEDx?
+                <select name="referral" value={formData.referral} onChange={handleChange}>
+                  <option value="">Select</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="Google Search">Google Search</option>
+                  <option value="Friend">Friend</option>
+                  <option value="University">University</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+            </div>
+
+            <button type="submit" className="register-btn">Reserve My Seat</button>
+          </form>
+
+          <p className="privacy-note">
+            Your information will only be used for TEDxIntegralUniversity event registration and communication.
+          </p>
         </div>
-
-        <div className="input-group">
-          <label>School / University / Company <span className="required">*</span></label>
-          <input name="organization" value={formData.organization} onChange={handleChange} placeholder="Enter your organization" />
-          {errors.organization && <p className="error">{errors.organization}</p>}
-        </div>
-
-        <div className="input-group">
-          <label>Industry / Domain <span className="required">*</span></label>
-          <select name="industry" value={formData.industry} onChange={handleChange}>
-            <option value="">Select Industry</option>
-            <option value="Technology">Technology</option>
-            <option value="Healthcare">Healthcare</option>
-            <option value="Education">Education</option>
-            <option value="Engineering">Engineering</option>
-            <option value="Business">Business</option>
-            <option value="Research">Research</option>
-            <option value="Other">Other</option>
-          </select>
-          {errors.industry && <p className="error">{errors.industry}</p>}
-        </div>
-
-        <div className="input-group">
-          <label>Special Requirements</label>
-          <textarea name="specialRequirements" value={formData.specialRequirements} onChange={handleChange} rows={4} placeholder="Mention accessibility or any special requirements" />
-        </div>
-
-        <div className="input-group">
-          <label>How did you hear about TEDx?</label>
-          <select name="referral" value={formData.referral} onChange={handleChange}>
-            <option value="">Select</option>
-            <option value="Instagram">Instagram</option>
-            <option value="LinkedIn">LinkedIn</option>
-            <option value="Google Search">Google Search</option>
-            <option value="Friend">Friend</option>
-            <option value="University">University</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-
-        <button type="submit" className="register-btn">Reserve My Seat</button>
-      </form>
-
-      <p className="privacy-note">Your information will only be used for TEDxIntegralUniversity event registration and communication.</p>
-      </div>
-      </div>
+      </main>
     </div>
   );
 }
