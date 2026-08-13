@@ -19,10 +19,26 @@ export default function Schedule({ hideHeader = false }) {
       const viewportHeight = window.innerHeight;
       const startLine = viewportHeight * 0.72;
       const endLine = viewportHeight * 0.28;
-      const travelDistance = Math.max(bounds.height + startLine - endLine, 1);
-      const progress = Math.min(1, Math.max(0, (startLine - bounds.top) / travelDistance));
+      
+      const idealTravelDistance = Math.max(bounds.height + startLine - endLine, 1);
+      const scrolledDistance = startLine - bounds.top;
 
-      setActiveStrips(Math.round(progress * LED_STRIP_COUNT));
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight;
+      const maxScrollTop = Math.max(0, scrollHeight - viewportHeight);
+      const remainingScroll = Math.max(0, maxScrollTop - scrollTop);
+      
+      // Maximum distance this timeline can scroll relative to the viewport
+      const maxScrolledDistance = scrolledDistance + remainingScroll;
+      
+      // Distribute progress over whichever distance is shorter to ensure smooth completion
+      const travelDistance = Math.max(1, Math.min(idealTravelDistance, maxScrolledDistance));
+      
+      const rawProgress = scrolledDistance / travelDistance;
+      const progress = Math.min(1, Math.max(0, rawProgress));
+      
+      const activeCount = progress >= 1 ? LED_STRIP_COUNT : Math.ceil(progress * LED_STRIP_COUNT);
+      setActiveStrips(activeCount);
     };
 
     const onScroll = () => {
