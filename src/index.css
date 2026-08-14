@@ -158,16 +158,22 @@ nav {
   justify-content: center;
   gap: 0;
   margin-bottom: 8px;
-  margin-left: 130px;
   opacity: 0;
   animation: fadeUp 0.8s ease 0.5s forwards;
 }
 
 .hero-logo-img {
-  height: clamp(48px, 8vw, 80px);
+  height: clamp(40px, 6vw, 68px);
   width: auto;
-  max-width: 90%;
+  max-width: 100%;
   object-fit: contain;
+}
+
+/* Desktop only: nudge logo slightly right */
+@media (min-width: 768px) {
+  .hero-logo-row {
+    transform: translateX(180px);
+  }
 }
 
 .hl-tagline {
@@ -1112,6 +1118,7 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
+
   /* Hero: mobile background treatment (Option A) */
   #hero {
     min-height: 95svh;

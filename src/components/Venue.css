@@ -214,13 +214,12 @@
 }
 
 .venue-panel-logo {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 0;
+  object-fit: contain;
   flex-shrink: 0;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
 }
 
 .venue-panel-title-text {
@@ -432,7 +431,7 @@
   }
 
   .venue-panel-logo {
-    width: 44px;
-    height: 44px;
+    max-width: 240px;
+    height: auto;
   }
 }
