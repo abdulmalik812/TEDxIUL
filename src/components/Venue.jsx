@@ -2,7 +2,7 @@
 // Inspired by Owais Raza (@oraza7867)
 import React, { useEffect, useRef, useState } from 'react';
 import './Venue.css';
-import universityLogo from '../assets/IUL.jpg';
+import universityLogo from '../../assets/images/IU_LOGO.png';
 
 // SVG icons — inline so zero deps
 const IconPin = () => (
@@ -78,9 +78,6 @@ function Panel({ venue }) {
         <p className="venue-panel-tag">{venue.subtitle}</p>
         <h2 className="venue-panel-title">
           <img src={universityLogo.src || universityLogo} alt="Integral University Logo" className="venue-panel-logo" />
-          <span className="venue-panel-title-text">
-            <strong>{venue.titleStrong} {venue.titleEm}</strong>
-          </span>
         </h2>
         <p className="venue-panel-sub">{venue.city}{venue.region ? `, ${venue.region}` : ''}</p>
       </div>
