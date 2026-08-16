@@ -271,7 +271,8 @@
 /* 3D TICKET CARD */
 .tedx-card-wrapper {
   flex: 1;
-  min-width: 320px;
+  min-width: 0;
+  width: 100%;
   max-width: 420px;
   transform-style: preserve-3d;
 }

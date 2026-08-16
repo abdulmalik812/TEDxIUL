@@ -8,8 +8,9 @@
 }
 
 .tickets-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -69,12 +70,12 @@
 }
 
 .ticket-period {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(245, 240, 234, 0.85);
   margin-bottom: 0.6rem;
 }
 
 .ticket-description {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(245, 240, 234, 0.85);
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -112,7 +113,5 @@
 }
 
 @media (max-width: 900px) {
-  .tickets-grid {
-    grid-template-columns: 1fr;
-  }
+  /* Flexbox will naturally wrap, so we no longer need grid overrides here */
 }

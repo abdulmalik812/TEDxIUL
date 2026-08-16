@@ -236,6 +236,7 @@
 }
 
 .venue-panel-sub {
+  margin-top: 22px;
   font-size: 12px;
   font-weight: 400;
   color: var(--text-muted);
@@ -248,7 +249,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   font-size: 13.5px;
   line-height: 1.85;
-  color: rgba(245, 240, 234, 0.65);
+  color: rgba(245, 240, 234, 0.85);
   font-weight: 400;
 }
 

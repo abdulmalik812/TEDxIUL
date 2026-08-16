@@ -68,7 +68,7 @@ export default function SchedulePage() {
 </div>
       <div className="page-wrap" style={{ paddingTop: '0' }}>
         <Link href="/" className="page-back-link">Home</Link>
-        <Schedule hideHeader={true} />
+        <Schedule />
       </div>
 
       <Footer />
