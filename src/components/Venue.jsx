@@ -2,7 +2,7 @@
 // Inspired by Owais Raza (@oraza7867)
 import React, { useEffect, useRef, useState } from 'react';
 import './Venue.css';
-import universityLogo from '../assets/IU-A.png';
+import universityLogo from '../assets/iul-A.png';
 
 // SVG icons — inline so zero deps
 const IconPin = () => (
