@@ -33,19 +33,22 @@
 
 .ticket-ribbon {
   position: absolute;
-  top: 2.1rem;
-  right: 0;
+  top: 1.2rem;
+  right: -0.5rem;
   background: linear-gradient(90deg, #e62b1e, #7b3fe4);
   color: white;
-  padding: 0.5rem 1.3rem;
-  border-radius: 999px 0 0 999px;
-  font-size: 0.78rem;
+  padding: 0.48rem 1rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   z-index: 2;
   text-align: center;
   white-space: nowrap;
   display: inline-block;
+  transform: none;
+  box-shadow: 0 10px 24px rgba(230, 43, 30, 0.4);
 }
 
 .ticket-header {
