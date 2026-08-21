@@ -31,7 +31,7 @@ export default function TeamPage() {
                 </div>
 
                 <div className="stat-card">
-                    <h2>10</h2>
+                    <h2>9</h2>
                     <p>Departments</p>
                 </div>
 
@@ -41,7 +41,7 @@ export default function TeamPage() {
                 </div>
 
                 <div className="stat-card">
-                    <h2>4</h2>
+                    <h2>3</h2>
                     <p>Core Committee</p>
                 </div>
             </section>
@@ -362,30 +362,7 @@ export default function TeamPage() {
 
                         </div>
                     </div>
-                    <div className="team-card">
 
-                        <Image unoptimized width={1200} height={800}
-                            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600"
-                            alt="Mohammad Ayaan Mujeeb"
-                            className="team-image"
-                        />
-
-                        <div className="team-overlay">
-
-                            <h3>Mohammad Ayaan Mujeeb</h3>
-
-                            <p className="team-role">
-                                Operations Manager
-                            </p>
-
-                            <div className="team-divider"></div>
-
-                            <p className="team-event">
-                                TEDxIntegralUniversity
-                            </p>
-
-                        </div>
-                    </div>
                     <div className="team-card">
 
                         <Image unoptimized width={1200} height={800}
