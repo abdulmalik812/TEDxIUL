@@ -10,8 +10,13 @@ import shishAhmad from '../assets/team-photos/leadership/shish-ahmad.png';
 import anumKamal from '../assets/team-photos/leadership/anum-kamal.png';
 import syedNadeemAkhtar from '../assets/team-photos/leadership/syed-nadeem-akhtar.png';
 
+import maazsiddiqui from '../assets/team-photos/organizers/Maaz-Siddiqui.jpg';
+import reemhamraz from '../assets/team-photos/organizers/Reem-Hamraz.png';
+
 import aliyahmohammadazam from '../assets/team-photos/core-committee/Aliyah_Mohammad_Azam.jpg';
 import arifsheikh from '../assets/team-photos/core-committee/Arif_Sheikh.jpeg';
+import haidermaseeh from '../assets/team-photos/core-committee/Haider-Maseeh.jpg';
+import jamizqamar from '../assets/team-photos/core-committee/Jamiz-Qamar.jpg';
 
 export default function TeamPage() {
     return (
@@ -41,7 +46,7 @@ export default function TeamPage() {
                 </div>
 
                 <div className="stat-card">
-                    <h2>3</h2>
+                    <h2>4</h2>
                     <p>Core Committee</p>
                 </div>
             </section>
@@ -245,7 +250,7 @@ export default function TeamPage() {
                     <div className="team-card">
 
                         <Image unoptimized width={1200} height={800}
-                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600"
+                            src={reemhamraz}
                             alt="Reem Hamraz"
                             className="team-image"
                         />
@@ -270,7 +275,7 @@ export default function TeamPage() {
                     <div className="team-card">
 
                         <Image unoptimized width={1200} height={800}
-                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600"
+                            src={maazsiddiqui}
                             alt="Mohamad Maaz Siddiqui"
                             className="team-image"
                         />
@@ -366,7 +371,7 @@ export default function TeamPage() {
                     <div className="team-card">
 
                         <Image unoptimized width={1200} height={800}
-                            src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=600"
+                            src={haidermaseeh}
                             alt="Haider Maseeh"
                             className="team-image"
                         />
@@ -377,6 +382,31 @@ export default function TeamPage() {
 
                             <p className="team-role">
                                 Field Supervisor
+                            </p>
+
+                            <div className="team-divider"></div>
+
+                            <p className="team-event">
+                                TEDxIntegralUniversity
+                            </p>
+
+                        </div>
+                    </div>
+                    
+                    <div className="team-card">
+
+                        <Image unoptimized width={1200} height={800}
+                            src={jamizqamar}
+                            alt="Jamiz Qamar"
+                            className="team-image"
+                        />
+
+                        <div className="team-overlay">
+
+                            <h3>Jamiz Qamar</h3>
+
+                            <p className="team-role">
+                                Treasurer
                             </p>
 
                             <div className="team-divider"></div>
