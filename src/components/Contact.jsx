@@ -30,7 +30,7 @@ export default function Contact({ hideHeader = false }) {
             <label>Message</label>
             <textarea rows="5" placeholder="Your message..."></textarea>
           </div>
-          <button className="btn-primary" style={{ width: '100%', marginTop: '4px' }}>Send Message →</button>
+          <button className="btn-primary contact-submit">Send Message →</button>
         </div>
         <div className="contact-info-col fade-in">
           <div className="cd-row">
