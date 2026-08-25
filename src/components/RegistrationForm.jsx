@@ -2,53 +2,17 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import toast, { Toaster } from 'react-hot-toast';
-import auditorium from '../assets/auditorium.png';
 import './RegistrationForm.css';
-
-function HeroSection() {
-  return (
-    <section className="registration-hero">
-      <img src={auditorium.src} alt="Auditorium background" className="hero-bg-image" />
-      <div className="hero-overlay" />
-      <div className="hero-inner">
-        <div className="brand-logo">
-          <span className="brand-red">TEDx</span>
-          <span className="brand-white">IntegralUniversity</span>
-        </div>
-        <p className="hero-tagline">IDEAS WORTH SPREADING</p>
-        <h1>Register</h1>
-        <p className="hero-copy">
-          Join innovators, researchers, entrepreneurs and creators for an inspiring TEDx experience.
-        </p>
-        <div className="hero-meta">
-          <div className="meta-item">
-            <span className="meta-label">VENUE</span>
-            <span className="meta-value">Integral University</span>
-          </div>
-          <div className="meta-item">
-            <span className="meta-label">DATE</span>
-            <span className="meta-value">26th September 2026</span>
-          </div>
-          <div className="meta-item">
-            <span className="meta-label">THEME</span>
-            <span className="meta-value">TESSELLATION</span>
-          </div>
-        </div>
-        <button className="hero-cta">Reserve Your Seat</button>
-      </div>
-    </section>
-  );
-}
-
 export default function RegistrationForm() {
   const searchParams = useSearchParams();
   const passParam = searchParams.get('pass');
+  const ticketType = ['general', 'early', 'student'].includes(passParam) ? passParam : '';
 
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
-    ticketType: passParam || '',
+    ticketType,
     category: '',
     organization: '',
     industry: '',
@@ -59,11 +23,8 @@ export default function RegistrationForm() {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    if (passParam) {
-      setFormData((prev) => ({ ...prev, ticketType: passParam }));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [passParam]);
+    setFormData((prev) => ({ ...prev, ticketType }));
+  }, [ticketType]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -109,10 +70,7 @@ export default function RegistrationForm() {
   };
 
   return (
-    <div className="registration-page">
-      <HeroSection />
-      <main className="registration-form-panel">
-        <div className="form-shell">
+    <main className="form-shell">
           <div className="form-header">
             <p className="form-subtitle">Secure your seat</p>
             <h2>Registration Form</h2>
@@ -273,8 +231,6 @@ export default function RegistrationForm() {
           <p className="privacy-note">
             Your information will only be used for TEDxIntegralUniversity event registration and communication.
           </p>
-        </div>
-      </main>
-    </div>
+    </main>
   );
 }

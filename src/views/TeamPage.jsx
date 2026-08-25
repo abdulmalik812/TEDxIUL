@@ -50,7 +50,7 @@ export default function TeamPage() {
                     <p>Core Committee</p>
                 </div>
             </section>
-            <section className="team-section">
+            <section className="team-section leadership-section">
                 <div className="section-divider"></div>
 
                 <div className="team-section-header">
@@ -68,7 +68,7 @@ export default function TeamPage() {
                         <Image
                             unoptimized
                             width={1200}
-                            height={800}
+                            height={900}
                             src={syedwaseemAkhtar}
                             alt="Prof. Syed Mohammad waseem Akhtar"
                             className="team-image"
@@ -78,11 +78,11 @@ export default function TeamPage() {
                             <h3>Prof. Syed Waseem Akhtar</h3>
 
                             <p className="team-role">
-                                Chief Patron, TEDxIntegralUniversity
+                                Chief Patron
                             </p>
 
                             <span className="team-badge">
-                                Pro-Chancellor, Integral University
+                                Chancellor, Integral University
                             </span>
 
                             <div className="team-divider"></div>
@@ -98,18 +98,18 @@ export default function TeamPage() {
                             alt="Prof. Dr. Syed  Mohammad Nadeem Akhtar"
                             className="team-image"
                             width={1200}
-                            height={800}
+                            height={900}
                         />
 
                         <div className="team-overlay">
                             <h3>Dr. Syed Nadeem Akhtar</h3>
 
                             <p className="team-role">
-                                Chief Patron, TEDxIntegralUniversity
+                                Chief Patron
                             </p>
 
                             <span className="team-badge">
-                                Pro-chancellor, Integral University
+                                Pro-Chancellor, Integral University
                             </span>
 
                             <div className="team-divider"></div>
@@ -125,7 +125,7 @@ export default function TeamPage() {
                         <Image
                             unoptimized
                             width={1200}
-                            height={800}
+                            height={900}
                             src={furqanqamar}
                             alt="Dr. Furqan qamar"
                             className="team-image"
@@ -153,14 +153,14 @@ export default function TeamPage() {
                             alt="Prof. Dr. Monowar Alam Khalid"
                             className="team-image"
                             width={1200}
-                            height={800}
+                            height={900}
                         />
 
                         <div className="team-overlay">
                             <h3>Dr. Monowar Alam Khalid</h3>
 
                             <p className="team-role">
-                                Co-Patron, TEDxIntegralUniversity
+                                Co-Patron
                             </p>
 
                             <span className="team-badge">
@@ -180,18 +180,18 @@ export default function TeamPage() {
                             alt="Dr. Shish Ahmad"
                             className="team-image"
                             width={1200}
-                            height={800}
+                            height={900}
                         />
 
                         <div className="team-overlay">
                             <h3>Dr. Shish Ahmad</h3>
 
                             <p className="team-role">
-                                Mentor, TEDxIntegralUniversity
+                                Mentor
                             </p>
 
                             <span className="team-badge">
-                                Head Of Department,CSE, Integral University
+                                Head Of CSE Dept., Integral University
                             </span>
 
                             <div className="team-divider"></div>
@@ -207,18 +207,18 @@ export default function TeamPage() {
                             alt="Dr. Anum Kamal"
                             className="team-image"
                             width={1200}
-                            height={800}
+                            height={900}
                         />
 
                         <div className="team-overlay">
                             <h3>Dr. Anum Kamal</h3>
 
                             <p className="team-role">
-                                Faculty Advisor, TEDxIntegralUniversity
+                                Faculty Advisor
                             </p>
 
                             <span className="team-badge">
-                                Assistant Professor,CSE, Integral University
+                                Assistant Professor, CSE, Integral University
                             </span>
 
                             <div className="team-divider"></div>
@@ -249,7 +249,7 @@ export default function TeamPage() {
                 <div className="team-grid">
                     <div className="team-card">
 
-                        <Image unoptimized width={1200} height={800}
+                        <Image unoptimized width={1200} height={900}
                             src={reemhamraz}
                             alt="Reem Hamraz"
                             className="team-image"
@@ -274,7 +274,7 @@ export default function TeamPage() {
                     </div>
                     <div className="team-card">
 
-                        <Image unoptimized width={1200} height={800}
+                        <Image unoptimized width={1200} height={900}
                             src={maazsiddiqui}
                             alt="Mohamad Maaz Siddiqui"
                             className="team-image"
@@ -321,7 +321,7 @@ export default function TeamPage() {
                 <div className="team-grid">
                     <div className="team-card">
 
-                        <Image unoptimized width={1200} height={800}
+                        <Image unoptimized width={1200} height={900}
                             src={aliyahmohammadazam}
                             alt="Aliyah Mohammad Azam"
                             className="team-image"
@@ -345,7 +345,7 @@ export default function TeamPage() {
                     </div>
                     <div className="team-card">
 
-                        <Image unoptimized width={1200} height={800}
+                        <Image unoptimized width={1200} height={900}
                             src={arifsheikh}
                             alt="Arif Sheikh"
                             className="team-image"
@@ -370,7 +370,7 @@ export default function TeamPage() {
 
                     <div className="team-card">
 
-                        <Image unoptimized width={1200} height={800}
+                        <Image unoptimized width={1200} height={900}
                             src={haidermaseeh}
                             alt="Haider Maseeh"
                             className="team-image"
@@ -392,10 +392,10 @@ export default function TeamPage() {
 
                         </div>
                     </div>
-                    
+
                     <div className="team-card">
 
-                        <Image unoptimized width={1200} height={800}
+                        <Image unoptimized width={1200} height={900}
                             src={jamizqamar}
                             alt="Jamiz Qamar"
                             className="team-image"

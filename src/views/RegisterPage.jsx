@@ -240,7 +240,7 @@ function MagneticButton({ onClick }) {
       onClick={onClick}
     >
       <button ref={btnRef} className="tedx-island-btn">
-        Checkout via Gateway
+        Proceed to Registration
       </button>
     </div>
   );
