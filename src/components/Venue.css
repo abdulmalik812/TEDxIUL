@@ -6,7 +6,7 @@
   color: var(--white);
   font-family: 'DM Sans', -apple-system, sans-serif;
   font-weight: 300;
-  padding: 120px 48px;
+  padding: 60px 48px;
   position: relative;
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.04);
@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 44px;
+  margin-bottom: 24px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -71,7 +71,7 @@
 .venue-split {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  min-height: 480px;
+  min-height: 320px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 4px;
   overflow: hidden;
@@ -92,7 +92,7 @@
   position: relative;
   overflow: hidden;
   background: #050510;
-  min-height: 350px;
+  min-height: 240px;
 }
 
 .venue-map-container iframe {
@@ -188,7 +188,7 @@
 }
 
 .venue-panel-top {
-  padding: 36px 36px 28px;
+  padding: 22px 28px 18px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -236,7 +236,7 @@
 }
 
 .venue-panel-sub {
-  margin-top: 22px;
+  margin-top: 10px;
   font-size: 12px;
   font-weight: 400;
   color: var(--text-muted);
@@ -245,12 +245,16 @@
 
 /* Description paragraph (bio) */
 .venue-panel-desc {
-  padding: 24px 36px;
+  padding: 14px 28px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  font-size: 13.5px;
-  line-height: 1.85;
+  font-size: 12.5px;
+  line-height: 1.7;
   color: rgba(245, 240, 234, 0.85);
   font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Stats (Capacity & Campus) */
@@ -261,7 +265,7 @@
 }
 
 .venue-stat {
-  padding: 20px 36px;
+  padding: 12px 28px;
   border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -294,7 +298,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 36px;
+  padding: 11px 28px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
@@ -343,7 +347,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 20px 36px;
+  padding: 12px 28px;
   background: transparent;
   color: var(--white);
   font-family: 'DM Sans', sans-serif;
@@ -391,7 +395,7 @@
 /* Responsive adjustment */
 @media (max-width: 992px) {
   #venue {
-    padding: 80px 24px;
+    padding: 48px 24px;
   }
 
   .venue-split {
@@ -407,8 +411,8 @@
 
 @media (max-width: 576px) {
   .venue-map-container {
-    height: 280px;
-    min-height: 280px;
+    height: 200px;
+    min-height: 200px;
   }
 
   .venue-panel-top,

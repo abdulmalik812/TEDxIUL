@@ -4,24 +4,58 @@ const ticketTiers = [
   {
     name: 'General',
     price: '₹799',
-    description: 'Perfect for first-time attendees',
-    features: ['Full-day event access', 'Welcome kit & goodies', 'Lunch & refreshments', 'Certificate of participation'],
+    description: 'Full auditorium access with back seating',
+    features: [
+      'Full auditorium access',
+      'All talks',
+      'Back seating',
+      'Refreshments',
+      'Key Rings',
+    ],
     featured: false,
   },
   {
     name: 'Gold',
-    price: '₹1699',
-    description: 'Enjoy a premium experience with added comfort',
-    features: ['Everything in General', 'Priority seating', 'Networking lounge access', 'Exclusive merch bundle'],
+    price: '₹1,699',
+    description: 'Premium experience with middle seating',
+    features: [
+      'Full auditorium access',
+      'All talks',
+      'Middle seating',
+      'Diary & Pen',
+      'Meal + Refreshment',
+    ],
     featured: true,
-    tag: 'Recommended',
+    tag: 'Most Popular',
   },
   {
     name: 'Platinum',
-    price: '₹2099',
-    description: 'The ultimate experience for VIP attendees',
-    features: ['Everything in Gold', 'Front-row seating', 'Meet & greet access', 'VIP refreshments'],
+    price: '₹2,099',
+    description: 'Front-row VIP experience with speaker access',
+    features: [
+      'Full auditorium access',
+      'All talks',
+      'Front-row seating',
+      'TEDx Kit',
+      'Meal + Refreshment',
+      'Meet & Greet with speakers',
+    ],
     featured: false,
+  },
+  {
+    name: 'Faculty',
+    price: '₹2,599',
+    description: 'VIP seating with full premium benefits',
+    features: [
+      'Full auditorium access',
+      'All talks',
+      'VIP seating',
+      'TEDx Kit',
+      'Meal + Refreshment',
+      'Meet & Greet with speakers',
+    ],
+    featured: false,
+    tag: 'Faculty',
   },
 ];
 
@@ -47,7 +81,7 @@ export default function Tickets() {
                 <li key={feature}><span className="tick">✓</span> {feature}</li>
               ))}
             </ul>
-            <a href="#contact" className={ticket.featured ? 'btn-primary ticket-btn' : 'btn-outline ticket-btn'}>
+            <a href="/register" className={ticket.featured ? 'btn-primary ticket-btn' : 'btn-outline ticket-btn'}>
               Get {ticket.name} →
             </a>
           </div>
