@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
 import './RegisterPage.css';
 import './pages.css';
 import { PremiumScrollReveal } from './MotionReveal';
@@ -48,6 +49,19 @@ const PASSES = {
     features: PASSES_DATA.early.features,
     note: 'Highly limited availability. Valid pre-registration required.',
     link: PASSES_DATA.early.link,
+  },
+  vip: {
+    key: 'vip',
+    tier: '03',
+    label: PASSES_DATA.vip.deck,
+    name: PASSES_DATA.vip.name,
+    price: PASSES_DATA.vip.price,
+    originalPrice: null,
+    code: PASSES_DATA.vip.code,
+    eligibility: PASSES_DATA.vip.noteText,
+    features: PASSES_DATA.vip.features,
+    note: 'Premium seating and exclusive access.',
+    link: PASSES_DATA.vip.link,
   },
 };
 
@@ -116,7 +130,7 @@ function Hero() {
   );
 }
 
-function Ticket({ pass, isSelected, onSelect }) {
+function Ticket({ pass, isSelected, onSelect, isVip }) {
   const cardRef = useRef(null);
   const [isLeaving, setIsLeaving] = useState(false);
   const isPremium = pass.key === 'early';
@@ -143,7 +157,7 @@ function Ticket({ pass, isSelected, onSelect }) {
     <div className="tedx-card-wrapper">
       <div
         ref={cardRef}
-        className={`tedx-card ${isSelected ? 'selected' : ''} ${isLeaving ? 'leaving' : ''}`}
+        className={`tedx-card ${isSelected ? 'selected' : ''} ${isLeaving ? 'leaving' : ''} ${isVip ? 'vip' : ''}`}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         onClick={() => onSelect(pass.key)}
@@ -154,7 +168,7 @@ function Ticket({ pass, isSelected, onSelect }) {
               <span className="tedx-tier-label">Pass Tier</span>
               <span className="tedx-tier-val">{pass.tier} // {pass.code.split('-')[1]}</span>
             </div>
-            <div className={`tedx-badge ${isPremium ? 'premium' : ''}`}>{pass.label}</div>
+            <div className={`tedx-badge ${isPremium ? 'premium' : ''} ${isVip ? 'vip' : ''}`}>{pass.label}</div>
           </div>
 
           <h3 className="tedx-pass-name">{pass.name}</h3>
@@ -240,6 +254,51 @@ export default function RegisterPage() {
   const activePass = selected ? PASSES[selected] : null;
 
   const [syncCtx, setSyncCtx] = useState(0);
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true, 
+    align: 'center',
+    duration: 25,
+    skipSnaps: false,
+  });
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const passKeys = Object.keys(PASSES);
+  const passCount = passKeys.length;
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    emblaApi.on('select', onSelect);
+    onSelect();
+    return () => emblaApi.off('select', onSelect);
+  }, [emblaApi]);
+
+  // Auto-advance through all tickets once on mount, then stop
+  useEffect(() => {
+    if (!emblaApi) return;
+    let step = 0;
+    const total = passCount;
+    const id = setInterval(() => {
+      step++;
+      if (step < total) {
+        emblaApi.scrollNext();
+      } else {
+        clearInterval(id);
+        // Loop back to first smoothly
+        emblaApi.scrollTo(0);
+      }
+    }, 900);
+    return () => clearInterval(id);
+  }, [emblaApi, passCount]);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
   const handleSyncRef = () => {
     setSyncCtx(prev => {
@@ -346,12 +405,48 @@ export default function RegisterPage() {
           </PremiumScrollReveal>
         </div>
 
-        <div className="tedx-grid">
-          {Object.values(PASSES).map((p, idx) => (
-            <PremiumScrollReveal key={p.key} delay={0.15 * idx}>
-              <Ticket pass={p} isSelected={selected === p.key} onSelect={setSelected} />
-            </PremiumScrollReveal>
-          ))}
+        <div className="tedx-carousel-wrapper">
+          <button className="tedx-carousel-nav prev" onClick={scrollPrev}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          
+          <div className="embla-viewport" ref={emblaRef}>
+            <div className="tedx-carousel">
+              {Object.values(PASSES).map((p, idx) => (
+                <div key={p.key} className="tedx-carousel-item">
+                  <PremiumScrollReveal delay={0.15 * idx}>
+                    <Ticket pass={p} isSelected={selected === p.key} onSelect={setSelected} isVip={p.key === 'vip'} />
+                  </PremiumScrollReveal>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button className="tedx-carousel-nav next" onClick={scrollNext}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+
+          {/* Mobile dot indicators + slide counter + swipe hint */}
+          <div className="tedx-carousel-dots">
+            {passKeys.map((key, idx) => (
+              <button
+                key={key}
+                className={`tedx-carousel-dot ${idx === selectedIndex ? 'active' : ''}`}
+                onClick={() => emblaApi && emblaApi.scrollTo(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+          <div className="tedx-slide-counter">
+            <span className="tedx-slide-current">{String(selectedIndex + 1).padStart(2, '0')}</span>
+            <span className="tedx-slide-sep"> / </span>
+            <span className="tedx-slide-total">{String(passCount).padStart(2, '0')}</span>
+          </div>
+          <div className="tedx-swipe-hint">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span>Swipe to explore</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m19 12H5M12 5l-7 7 7 7"/></svg>
+          </div>
         </div>
 
         <div className="tedx-island-wrapper">
