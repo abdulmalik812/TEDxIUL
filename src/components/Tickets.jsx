@@ -55,7 +55,6 @@ const ticketTiers = [
       'Meet & Greet with speakers',
     ],
     featured: false,
-    tag: 'Faculty',
   },
 ];
 
