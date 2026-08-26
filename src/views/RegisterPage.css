@@ -1084,93 +1084,183 @@
   .tedx-cutout.right { right: -12px; }
 }
 
-/* ── VIP TICKET GOLD THEME ── */
-.tedx-card.vip {
-  background: linear-gradient(160deg, rgba(30, 25, 10, 0.95) 0%, rgba(15, 12, 5, 0.98) 100%);
-  border-color: rgba(212, 175, 55, 0.3);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(212, 175, 55, 0.2);
+/* ── TIER CARD SYSTEM ── */
+.tedx-card {
+  --ticket-accent: #EB0028;
+  --ticket-accent-bright: #FF3B5C;
+  --ticket-badge-bg: rgba(235, 0, 40, 0.12);
+  --ticket-badge-text: #FFFFFF;
+  --ticket-gradient: linear-gradient(155deg, #1B1B1B 0%, #141414 58%, #0A0A0A 100%);
+  background: var(--ticket-gradient);
+  border-color: color-mix(in srgb, var(--ticket-accent) 48%, #2A2A2A);
+  min-height: 680px;
+  isolation: isolate;
 }
 
-/* Animated gold shimmer on the card */
-.tedx-card.vip::after {
+.tedx-card::after {
   content: '';
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(212, 175, 55, 0.06) 50%,
-    transparent 60%
-  );
-  background-size: 200% 100%;
-  animation: vipShimmer 3s ease-in-out infinite;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: var(--ticket-accent-bright);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--ticket-accent-bright) 55%, transparent);
+  opacity: 0.9;
+  z-index: 4;
   pointer-events: none;
-  z-index: 2;
 }
 
-@keyframes vipShimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+.ticket-card--general {
+  --ticket-accent: #EB0028;
+  --ticket-accent-bright: #FF3B5C;
+  --ticket-badge-bg: rgba(235, 0, 40, 0.16);
 }
 
-.tedx-card.vip:hover {
-  border-color: rgba(212, 175, 55, 0.6);
-  box-shadow: 0 40px 80px rgba(212, 175, 55, 0.08), inset 0 1px 0 rgba(212, 175, 55, 0.3);
+.ticket-card--gold {
+  --ticket-accent: #D4A72C;
+  --ticket-accent-bright: #F2C94C;
+  --ticket-badge-bg: rgba(212, 167, 44, 0.16);
+  --ticket-gradient: linear-gradient(155deg, rgba(60, 48, 18, 0.42) 0%, #1B1B1B 44%, #141414 100%);
 }
 
-.tedx-card.vip.selected {
-  border-color: #D4AF37;
-  box-shadow: 0 0 0 1px #D4AF37, 0 32px 64px rgba(212, 175, 55, 0.25), inset 0 1px 0 rgba(212, 175, 55, 0.4);
+.ticket-card--platinum {
+  --ticket-accent: #C7D0D9;
+  --ticket-accent-bright: #8FA3B8;
+  --ticket-badge-bg: rgba(199, 208, 217, 0.18);
+  --ticket-gradient: linear-gradient(155deg, rgba(66, 78, 91, 0.38) 0%, #1B1B1B 44%, #141414 100%);
 }
 
-.tedx-card.vip .tedx-price {
-  background: linear-gradient(135deg, #f5d572, #D4AF37, #a07c1e);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.ticket-card--faculty {
+  --ticket-accent: #EB0028;
+  --ticket-accent-bright: #FF5A72;
+  --ticket-badge-bg: #FFFFFF;
+  --ticket-badge-text: #8B1026;
+  --ticket-gradient: linear-gradient(155deg, rgba(139, 16, 38, 0.5) 0%, #1B1B1B 43%, #0A0A0A 100%);
 }
 
-.tedx-card.vip .tedx-feature-icon {
-  color: #D4AF37;
+.tedx-card:hover {
+  border-color: var(--ticket-accent);
+  box-shadow: 0 40px 80px color-mix(in srgb, var(--ticket-accent) 15%, transparent), inset 0 1px 0 color-mix(in srgb, var(--ticket-accent) 35%, transparent);
 }
 
-.tedx-card.vip.selected .tedx-feature-icon {
-  background: #D4AF37;
-  color: #000;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+.tedx-card.selected {
+  border: 2px solid var(--ticket-accent-bright);
+  box-shadow: 0 0 0 2px #0A0A0A, 0 0 0 4px var(--ticket-accent), 0 32px 64px color-mix(in srgb, var(--ticket-accent) 30%, transparent), inset 0 1px 0 color-mix(in srgb, var(--ticket-accent-bright) 55%, transparent);
 }
 
-.tedx-card.vip.selected .tedx-dash {
-  border-color: rgba(212, 175, 55, 0.4);
+.tedx-card:focus-visible {
+  outline: 3px solid var(--ticket-accent-bright);
+  outline-offset: 5px;
 }
 
-.tedx-card.vip.selected .tedx-cutout.left,
-.tedx-card.vip.selected .tedx-cutout.right {
-  border-color: #D4AF37;
+.tedx-badge {
+  background: var(--ticket-badge-bg);
+  border-color: color-mix(in srgb, var(--ticket-accent) 65%, #2A2A2A);
+  color: var(--ticket-badge-text);
 }
 
-.tedx-card.vip.selected .tedx-scanner-laser {
-  background: #D4AF37;
-  box-shadow: 0 0 10px 2px rgba(212, 175, 55, 0.6);
+.tedx-card.selected .tedx-badge {
+  background: var(--ticket-accent-bright);
+  border-color: var(--ticket-accent-bright);
+  color: var(--ticket-badge-text);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--ticket-accent-bright) 28%, transparent);
 }
 
-.tedx-card.vip.selected .tedx-btn {
-  background: linear-gradient(135deg, #f5d572, #D4AF37);
-  color: #000;
-  border-color: #D4AF37;
+.tedx-pass-name,
+.tedx-price {
+  color: #FFFFFF;
 }
 
-.tedx-badge.vip {
-  background: rgba(212, 175, 55, 0.1);
-  border-color: rgba(212, 175, 55, 0.3);
-  color: #D4AF37;
+.tedx-price {
+  color: var(--ticket-accent-bright);
+  text-shadow: 0 0 22px color-mix(in srgb, var(--ticket-accent-bright) 22%, transparent);
 }
 
-.tedx-card.vip.selected .tedx-badge.vip {
-  background: #D4AF37;
-  border-color: #D4AF37;
-  color: #000;
+.tedx-feature-icon {
+  background: color-mix(in srgb, var(--ticket-accent) 15%, #141414);
+  color: var(--ticket-accent-bright);
+}
+
+.tedx-card.selected .tedx-feature-icon {
+  background: var(--ticket-accent-bright);
+  color: #0A0A0A;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--ticket-accent-bright) 48%, transparent);
+}
+
+.tedx-card.selected .tedx-cutout.left,
+.tedx-card.selected .tedx-cutout.right {
+  border-color: var(--ticket-accent);
+}
+
+.tedx-card.selected .tedx-dash {
+  border-color: color-mix(in srgb, var(--ticket-accent) 60%, transparent);
+}
+
+.tedx-card .tedx-btn {
+  border-color: color-mix(in srgb, var(--ticket-accent) 55%, #2A2A2A);
+}
+
+.tedx-card.selected .tedx-btn {
+  background: var(--ticket-accent-bright);
+  border-color: var(--ticket-accent-bright);
+  color: #0A0A0A;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--ticket-accent-bright) 25%, transparent);
+}
+
+.tedx-auth-dot {
+  background: #0A0A0A;
+}
+
+.tedx-card.selected .tedx-scanner-laser {
+  background: var(--ticket-accent-bright);
+  box-shadow: 0 0 10px 2px color-mix(in srgb, var(--ticket-accent-bright) 60%, transparent);
+}
+
+@media (max-width: 820px) {
+  .tedx-card {
+    min-height: 0;
+  }
+
+  .tedx-card.selected {
+    box-shadow: 0 0 0 2px #0A0A0A, 0 0 0 4px var(--ticket-accent), 0 20px 44px color-mix(in srgb, var(--ticket-accent) 24%, transparent);
+  }
+}
+
+/* Four readable cards fit at this threshold without shrinking the ticket typography. */
+@media (min-width: 1280px) {
+  .tedx-carousel-wrapper {
+    max-width: 1440px;
+    padding: 0 32px 200px;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .tedx-carousel {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .embla-viewport {
+    overflow: visible;
+  }
+
+  .tedx-carousel-item {
+    min-width: 0;
+    max-width: none;
+    width: auto;
+  }
+
+  .tedx-card-wrapper {
+    width: 100%;
+    max-width: none;
+  }
+
+  .tedx-carousel-nav {
+    display: none;
+  }
 }
 
 /* ── SLIDE COUNTER ── */

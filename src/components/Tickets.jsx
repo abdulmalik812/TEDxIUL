@@ -2,58 +2,36 @@ import './Tickets.css';
 
 const ticketTiers = [
   {
+    key: 'general',
     name: 'General',
     price: '₹799',
-    description: 'Full auditorium access with back seating',
-    features: [
-      'Full auditorium access',
-      'All talks',
-      'Back seating',
-      'Refreshments',
-      'Key Rings',
-    ],
+    description: 'Perfect for first-time attendees',
+    features: ['Full Auditorium Access', 'All Talks', 'Back Seating', 'Refreshments', 'Key Rings'],
     featured: false,
   },
   {
+    key: 'gold',
     name: 'Gold',
     price: '₹1,699',
-    description: 'Premium experience with middle seating',
-    features: [
-      'Full auditorium access',
-      'All talks',
-      'Middle seating',
-      'Diary & Pen',
-      'Meal + Refreshment',
-    ],
+    description: 'Enjoy a premium experience with added comfort',
+    features: ['Full Auditorium Access', 'All Talks', 'Middle Seating', 'Diary & Pen', 'Meal & Refreshments'],
     featured: true,
     tag: 'Most Popular',
   },
   {
+    key: 'platinum',
     name: 'Platinum',
     price: '₹2,099',
-    description: 'Front-row VIP experience with speaker access',
-    features: [
-      'Full auditorium access',
-      'All talks',
-      'Front-row seating',
-      'TEDx Kit',
-      'Meal + Refreshment',
-      'Meet & Greet with speakers',
-    ],
+    description: 'The ultimate experience for premium attendees',
+    features: ['Full Auditorium Access', 'All Talks', 'Front-Row Seating', 'TEDx Kit', 'Meal & Refreshments', 'Meet & Greet with Speakers'],
     featured: false,
   },
   {
+    key: 'faculty',
     name: 'Faculty',
     price: '₹2,599',
-    description: 'VIP seating with full premium benefits',
-    features: [
-      'Full auditorium access',
-      'All talks',
-      'VIP seating',
-      'TEDx Kit',
-      'Meal + Refreshment',
-      'Meet & Greet with speakers',
-    ],
+    description: 'An exclusive experience for faculty members',
+    features: ['Full Auditorium Access', 'All Talks', 'VIP Seating', 'TEDx Kit', 'Meal & Refreshment', 'Meet & Greet with Speakers'],
     featured: false,
   },
 ];
@@ -80,7 +58,7 @@ export default function Tickets() {
                 <li key={feature}><span className="tick">✓</span> {feature}</li>
               ))}
             </ul>
-            <a href="/register" className={ticket.featured ? 'btn-primary ticket-btn' : 'btn-outline ticket-btn'}>
+            <a href={`/register/form?pass=${ticket.key}`} className={ticket.featured ? 'btn-primary ticket-btn' : 'btn-outline ticket-btn'}>
               Get {ticket.name} →
             </a>
           </div>
