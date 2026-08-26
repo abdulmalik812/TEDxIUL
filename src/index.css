@@ -2,14 +2,6 @@
 Modified by Abdul Malik (@abdulmalik812)
 */
 
-/* ── Venue description: clamp to 3 lines on homepage only ── */
-.homepage-wrapper .venue-panel-desc {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 :root {
   --red: #E62B1E;
   --white: #F5F0EA;
