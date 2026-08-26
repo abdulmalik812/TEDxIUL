@@ -210,120 +210,113 @@ nav {
   animation: fadeUp 0.7s ease 0.65s forwards;
 }
 
-/* ── Lucknowi Tessellation Block ── */
+/* ── TEDx-style Theme Block ── */
 .tessellation-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  opacity: 0;
-  animation: fadeUp 1s ease 0.8s forwards;
+  gap: 0;
+  position: relative;
 }
 
-.tess-ornament-top,
-.tess-ornament-bot {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  justify-content: center;
-}
-
-.tess-orn-line {
-  display: block;
-  flex: 1;
-  max-width: 140px;
-  height: 1px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(212, 175, 55, 0.25) 20%,
-    rgba(212, 175, 55, 0.85) 50%,
-    rgba(212, 175, 55, 0.25) 80%,
-    transparent 100%);
-  animation: ornLineGlow 4s ease-in-out infinite alternate;
-}
-
-.tess-orn-icon {
-  font-size: 10px;
-  color: rgba(212, 175, 55, 0.7);
-  animation: ornPulse 3s ease-in-out infinite alternate;
-}
-
-.tess-orn-gem {
-  font-size: 14px;
-  color: #D4AF37;
-  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.9));
-  animation: ornPulse 2.5s ease-in-out infinite alternate;
-}
-
-.tess-orn-petal {
-  font-size: 16px;
-  color: rgba(212, 175, 55, 0.75);
-  animation: ornPulse 3.5s ease-in-out infinite alternate;
-}
-
-.tess-orn-arch {
-  font-size: 14px;
-  color: #D4AF37;
-  filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.8));
-  animation: ornSpin 20s linear infinite;
-}
-
-@keyframes ornLineGlow {
-  0%   { opacity: 0.4; }
-  100% { opacity: 1; }
-}
-@keyframes ornPulse {
-  0%   { opacity: 0.5; transform: scale(0.9); }
-  100% { opacity: 1;   transform: scale(1.1); }
-}
-@keyframes ornSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-.hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(52px, 12.5vw, 144px);
+/* "THEME" eyebrow label above the title */
+.theme-eyebrow {
+  display: inline-block;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(10px, 1.4vw, 13px);
   font-weight: 700;
-  font-style: italic;
-  line-height: 0.9;
-  letter-spacing: clamp(6px, 1.5vw, 20px);
-  background: linear-gradient(
-    135deg,
-    #f5e6b8 0%,
-    #D4AF37 20%,
-    #fff8dc 38%,
-    #c8961c 52%,
-    #f0d060 65%,
-    #D4AF37 78%,
-    #f5e6b8 100%
-  );
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: var(--red, #E62B1E);
+  padding: 4px 14px;
+  margin-bottom: 18px;
+  clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%);
+}
+
+/* Bold TEDx-style theme title */
+.hero-title {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(52px, 11vw, 136px);
+  font-weight: 900;
+  font-style: normal;
+  line-height: 0.92;
+  letter-spacing: clamp(-2px, -0.3vw, -4px);
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
   text-shadow: none;
   position: relative;
   max-width: 100%;
   width: 100%;
   text-align: center;
-  /* prevent overflow on any screen */
   overflow: visible;
   word-break: keep-all;
   white-space: nowrap;
-  animation: tessGoldShimmer 5s ease-in-out infinite, tessGlow 4s ease-in-out infinite alternate;
+  /* no animation here — individual letters animate instead */
 }
 
-@keyframes tessGoldShimmer {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Each letter animates in with a staggered drop + bounce */
+.hero-title-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: letterDrop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(0.7s + var(--i) * 55ms);
+
+  /*
+   * Gradient colour grading across the word:
+   * Each letter is positioned inside a 1200%-wide gradient
+   * (12 letters × 100%), so the gradient reads continuously
+   * across the full word: white → blush → TEDx red → blush → white.
+   */
+  background: linear-gradient(90deg,
+    #ffffff  0%,
+    #ffd6d3 15%,
+    #ff7060 30%,
+    #E62B1E 45%,
+    #E62B1E 55%,
+    #ff7060 70%,
+    #ffd6d3 85%,
+    #ffffff 100%
+  );
+  background-size: 1200% 100%;
+  background-position: calc(var(--i) / 11 * 100%) 0%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  transition: filter 0.25s ease, transform 0.22s ease;
 }
 
-@keyframes tessGlow {
-  0%   { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2)); }
-  100% { filter: drop-shadow(0 0 38px rgba(212, 175, 55, 0.65)); }
+/* Hover: intensify the gradient — bright + saturated ripple */
+.hero-title:hover .hero-title-letter {
+  filter: brightness(1.25) saturate(1.8) drop-shadow(0 0 8px rgba(230, 43, 30, 0.55));
+  transform: translateY(-5px) scale(1.06);
+  transition-delay: calc(var(--i) * 20ms);
+}
+
+@keyframes letterDrop {
+  0%   { opacity: 0; transform: translateY(-48px) scaleY(1.3); }
+  60%  { opacity: 1; transform: translateY(6px)  scaleY(0.94); }
+  80%  { transform: translateY(-3px) scaleY(1.02); }
+  100% { opacity: 1; transform: translateY(0)    scaleY(1); }
+}
+
+/* Solid red accent bar below the title — fires after last letter lands */
+.theme-title-bar {
+  width: clamp(60px, 14vw, 160px);
+  height: 6px;
+  background: var(--red, #E62B1E);
+  margin: 18px auto 0;
+  transform-origin: left center;
+  opacity: 0;
+  animation: barSlideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) 1.86s forwards;
+}
+
+/* barSlideIn fires after the last letter (index 11) lands: 0.7s + 11*55ms + 0.55s ≈ 1.86s */
+@keyframes barSlideIn {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
 }
 
 .hero-sub {
