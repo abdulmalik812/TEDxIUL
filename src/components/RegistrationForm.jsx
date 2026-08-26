@@ -6,7 +6,7 @@ import './RegistrationForm.css';
 export default function RegistrationForm() {
   const searchParams = useSearchParams();
   const passParam = searchParams.get('pass');
-  const ticketType = ['general', 'early', 'student'].includes(passParam) ? passParam : '';
+  const ticketType = ['general', 'gold', 'platinum', 'faculty'].includes(passParam) ? passParam : '';
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -140,8 +140,9 @@ export default function RegistrationForm() {
                 <select name="ticketType" value={formData.ticketType} onChange={handleChange}>
                   <option value="">Select Ticket Type</option>
                   <option value="general">General Pass</option>
-                  <option value="early">VIP Pass</option>
-                  <option value="student">Student Pass</option>
+                  <option value="gold">Gold Pass</option>
+                  <option value="platinum">Platinum Pass</option>
+                  <option value="faculty">Faculty Pass</option>
                 </select>
               </label>
               {errors.ticketType && <span className="field-error">{errors.ticketType}</span>}
