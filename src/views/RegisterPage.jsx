@@ -23,6 +23,8 @@ const EVENT = {
   legal: 'This independent TEDx event is operated under license from TED.',
 };
 
+const WIDE_GRID_BREAKPOINT = 1280;
+
 const PASSES = {
   general: {
     key: 'general',
@@ -143,7 +145,7 @@ function Hero() {
   );
 }
 
-function Ticket({ pass, isSelected, onSelect, isVip }) {
+function Ticket({ pass, isSelected, onSelect }) {
   const cardRef = useRef(null);
   const [isLeaving, setIsLeaving] = useState(false);
   const isPremium = pass.key === 'gold';
@@ -170,10 +172,20 @@ function Ticket({ pass, isSelected, onSelect, isVip }) {
     <div className="tedx-card-wrapper">
       <div
         ref={cardRef}
-        className={`tedx-card ${isSelected ? 'selected' : ''} ${isLeaving ? 'leaving' : ''} ${isVip ? 'vip' : ''}`}
+        className={`tedx-card ticket-card--${pass.key} ${isSelected ? 'selected' : ''} ${isLeaving ? 'leaving' : ''}`}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         onClick={() => onSelect(pass.key)}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            onSelect(pass.key);
+          }
+        }}
+        role="button"
+        tabIndex={0}
+        aria-pressed={isSelected}
+        aria-label={`${pass.name}, ₹${pass.price.toLocaleString('en-IN')}`}
       >
         <div className="tedx-card-top">
           <div className="tedx-meta-row">
@@ -181,7 +193,7 @@ function Ticket({ pass, isSelected, onSelect, isVip }) {
               <span className="tedx-tier-label">Pass Tier</span>
               <span className="tedx-tier-val">{pass.tier} // {pass.code.split('-')[1]}</span>
             </div>
-            <div className={`tedx-badge ${isPremium ? 'premium' : ''} ${isVip ? 'vip' : ''}`}>{pass.label}</div>
+            <div className={`tedx-badge ${isPremium ? 'premium' : ''}`}>{pass.label}</div>
           </div>
 
           <h3 className="tedx-pass-name">{pass.name}</h3>
@@ -268,11 +280,16 @@ export default function RegisterPage() {
 
   const [syncCtx, setSyncCtx] = useState(0);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true, 
     align: 'center',
     duration: 25,
     skipSnaps: false,
+    breakpoints: {
+      [`(min-width: ${WIDE_GRID_BREAKPOINT}px)`]: {
+        active: false,
+      },
+    },
   });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -428,7 +445,7 @@ export default function RegisterPage() {
               {Object.values(PASSES).map((p, idx) => (
                 <div key={p.key} className="tedx-carousel-item">
                   <PremiumScrollReveal delay={0.15 * idx}>
-                    <Ticket pass={p} isSelected={selected === p.key} onSelect={setSelected} isVip={p.key === 'platinum' || p.key === 'faculty'} />
+                    <Ticket pass={p} isSelected={selected === p.key} onSelect={setSelected} />
                   </PremiumScrollReveal>
                 </div>
               ))}
