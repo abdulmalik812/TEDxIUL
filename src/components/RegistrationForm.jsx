@@ -206,7 +206,7 @@ export default function RegistrationForm() {
               </label>
               {errors.organization && <span className="field-error">{errors.organization}</span>}
             </div>
-
+            {/*
             <div className="form-row">
               <label>
                 <span className="field-label">Industry / Domain <span className="optional">(optional)</span></span>
@@ -236,7 +236,7 @@ export default function RegistrationForm() {
                 />
               </label>
             </div>
-
+            */}
             <div className="form-row">
               <label>
                 <span className="field-label">How did you hear about TEDx? <span className="optional">(optional)</span></span>
