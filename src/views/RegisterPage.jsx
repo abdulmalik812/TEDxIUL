@@ -23,6 +23,8 @@ const EVENT = {
   legal: 'This independent TEDx event is operated under license from TED.',
 };
 
+const WIDE_GRID_BREAKPOINT = 1280;
+
 const PASSES = {
   general: {
     key: 'general',
@@ -37,31 +39,44 @@ const PASSES = {
     note: 'Standard seating. No pre-registration required.',
     link: PASSES_DATA.general.link,
   },
-  early: {
-    key: 'early',
+  gold: {
+    key: 'gold',
     tier: '02',
-    label: PASSES_DATA.early.deck,
-    name: PASSES_DATA.early.name,
-    price: PASSES_DATA.early.price,
-    originalPrice: PASSES_DATA.early.price + (PASSES_DATA.early.discount || 3),
-    code: PASSES_DATA.early.code,
-    eligibility: PASSES_DATA.early.noteText,
-    features: PASSES_DATA.early.features,
-    note: 'Highly limited availability. Valid pre-registration required.',
-    link: PASSES_DATA.early.link,
-  },
-  vip: {
-    key: 'vip',
-    tier: '03',
-    label: PASSES_DATA.vip.deck,
-    name: PASSES_DATA.vip.name,
-    price: PASSES_DATA.vip.price,
+    label: PASSES_DATA.gold.deck,
+    name: PASSES_DATA.gold.name,
+    price: PASSES_DATA.gold.price,
     originalPrice: null,
-    code: PASSES_DATA.vip.code,
-    eligibility: PASSES_DATA.vip.noteText,
-    features: PASSES_DATA.vip.features,
-    note: 'Premium seating and exclusive access.',
-    link: PASSES_DATA.vip.link,
+    code: PASSES_DATA.gold.code,
+    eligibility: PASSES_DATA.gold.noteText,
+    features: PASSES_DATA.gold.features,
+    note: 'Premium seating and added event benefits.',
+    link: PASSES_DATA.gold.link,
+  },
+  platinum: {
+    key: 'platinum',
+    tier: '03',
+    label: PASSES_DATA.platinum.deck,
+    name: PASSES_DATA.platinum.name,
+    price: PASSES_DATA.platinum.price,
+    originalPrice: null,
+    code: PASSES_DATA.platinum.code,
+    eligibility: PASSES_DATA.platinum.noteText,
+    features: PASSES_DATA.platinum.features,
+    note: 'Front-row seating and exclusive access.',
+    link: PASSES_DATA.platinum.link,
+  },
+  faculty: {
+    key: 'faculty',
+    tier: '04',
+    label: PASSES_DATA.faculty.deck,
+    name: PASSES_DATA.faculty.name,
+    price: PASSES_DATA.faculty.price,
+    originalPrice: null,
+    code: PASSES_DATA.faculty.code,
+    eligibility: PASSES_DATA.faculty.noteText,
+    features: PASSES_DATA.faculty.features,
+    note: 'Exclusive faculty seating and access.',
+    link: PASSES_DATA.faculty.link,
   },
 };
 
@@ -130,10 +145,10 @@ function Hero() {
   );
 }
 
-function Ticket({ pass, isSelected, onSelect, isVip }) {
+function Ticket({ pass, isSelected, onSelect }) {
   const cardRef = useRef(null);
   const [isLeaving, setIsLeaving] = useState(false);
-  const isPremium = pass.key === 'early';
+  const isPremium = pass.key === 'gold';
   const barcodeData = generateBarcode(pass.code, 50);
 
   const handleMouseMove = (e) => {
@@ -157,10 +172,20 @@ function Ticket({ pass, isSelected, onSelect, isVip }) {
     <div className="tedx-card-wrapper">
       <div
         ref={cardRef}
-        className={`tedx-card ${isSelected ? 'selected' : ''} ${isLeaving ? 'leaving' : ''} ${isVip ? 'vip' : ''}`}
+        className={`tedx-card ticket-card--${pass.key} ${isSelected ? 'selected' : ''} ${isLeaving ? 'leaving' : ''}`}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         onClick={() => onSelect(pass.key)}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            onSelect(pass.key);
+          }
+        }}
+        role="button"
+        tabIndex={0}
+        aria-pressed={isSelected}
+        aria-label={`${pass.name}, ₹${pass.price.toLocaleString('en-IN')}`}
       >
         <div className="tedx-card-top">
           <div className="tedx-meta-row">
@@ -168,13 +193,13 @@ function Ticket({ pass, isSelected, onSelect, isVip }) {
               <span className="tedx-tier-label">Pass Tier</span>
               <span className="tedx-tier-val">{pass.tier} // {pass.code.split('-')[1]}</span>
             </div>
-            <div className={`tedx-badge ${isPremium ? 'premium' : ''} ${isVip ? 'vip' : ''}`}>{pass.label}</div>
+            <div className={`tedx-badge ${isPremium ? 'premium' : ''}`}>{pass.label}</div>
           </div>
 
           <h3 className="tedx-pass-name">{pass.name}</h3>
 
           <div className="tedx-price-row">
-            <span className="tedx-price">₹{pass.price}</span>
+            <span className="tedx-price">₹{pass.price.toLocaleString('en-IN')}</span>
             {pass.originalPrice && <span className="tedx-price-strike">₹{pass.originalPrice}</span>}
           </div>
         </div>
@@ -240,7 +265,7 @@ function MagneticButton({ onClick }) {
       onClick={onClick}
     >
       <button ref={btnRef} className="tedx-island-btn">
-        Checkout via Gateway
+        Proceed to Registration
       </button>
     </div>
   );
@@ -255,11 +280,16 @@ export default function RegisterPage() {
 
   const [syncCtx, setSyncCtx] = useState(0);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true, 
     align: 'center',
     duration: 25,
     skipSnaps: false,
+    breakpoints: {
+      [`(min-width: ${WIDE_GRID_BREAKPOINT}px)`]: {
+        active: false,
+      },
+    },
   });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -415,7 +445,7 @@ export default function RegisterPage() {
               {Object.values(PASSES).map((p, idx) => (
                 <div key={p.key} className="tedx-carousel-item">
                   <PremiumScrollReveal delay={0.15 * idx}>
-                    <Ticket pass={p} isSelected={selected === p.key} onSelect={setSelected} isVip={p.key === 'vip'} />
+                    <Ticket pass={p} isSelected={selected === p.key} onSelect={setSelected} />
                   </PremiumScrollReveal>
                 </div>
               ))}
@@ -458,7 +488,7 @@ export default function RegisterPage() {
               </div>
               <div className="tedx-island-col" style={{ alignItems: 'flex-end' }}>
                 <span className="tedx-island-lbl">Total</span>
-                <span className="tedx-island-price">₹{activePass?.price}</span>
+                <span className="tedx-island-price">₹{activePass?.price.toLocaleString('en-IN')}</span>
               </div>
             </div>
 
