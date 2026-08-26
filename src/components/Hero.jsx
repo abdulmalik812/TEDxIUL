@@ -4,6 +4,7 @@ import logoWhite from '../../assets/images/logo-white.png';
 import iulLogo  from '../../assets/images/iul.png';
 
 export default function Hero() {
+  const word = 'TESSELLATION';
   return (
     <section id="hero">
       {/* Background image with Ken Burns animation */}
@@ -16,23 +17,22 @@ export default function Hero() {
           <Image unoptimized width={120} height={80} src={iulLogo}   alt="Integral University Lucknow" className="hero-logo-iul" />
         </div>
         <p className="hl-tagline">x = independently organized TED event</p>
-        {/* Lucknowi Nawabi TESSELLATION block */}
+        {/* TEDx-style theme block */}
         <div className="tessellation-block">
-          <div className="tess-ornament-top" aria-hidden="true">
-            <span className="tess-orn-line"></span>
-            <span className="tess-orn-icon">✦</span>
-            <span className="tess-orn-gem">◆</span>
-            <span className="tess-orn-icon">✦</span>
-            <span className="tess-orn-line"></span>
-          </div>
-          <h1 className="hero-title">TESSELLATION</h1>
-          <div className="tess-ornament-bot" aria-hidden="true">
-            <span className="tess-orn-line"></span>
-            <span className="tess-orn-petal">❧</span>
-            <span className="tess-orn-arch">⌘</span>
-            <span className="tess-orn-petal">❧</span>
-            <span className="tess-orn-line"></span>
-          </div>
+          <span className="theme-eyebrow">THEME</span>
+          <h1 className="hero-title" aria-label="Tessellation">
+            {word.split('').map((letter, i) => (
+              <span
+                key={i}
+                className="hero-title-letter"
+                style={{ '--i': i }}
+                aria-hidden="true"
+              >
+                {letter}
+              </span>
+            ))}
+          </h1>
+          <div className="theme-title-bar" aria-hidden="true"></div>
         </div>
         <p className="hero-sub">From Individual Ideas to Collective Impact</p>
         <p className="hero-date">September, 2026</p>
