@@ -181,9 +181,10 @@ export default function RegistrationForm() {
                 Ticket Type <span className="required">*</span>
                 <select name="ticketType" value={formData.ticketType} onChange={handleChange}>
                   <option value="">Select Ticket Type</option>
-                  <option value="general">General Pass</option>
-                  <option value="early">VIP Pass</option>
-                  <option value="student">Student Pass</option>
+                  <option value="general">General — ₹799</option>
+                  <option value="gold">Gold — ₹1,699</option>
+                  <option value="platinum">Platinum — ₹2,099</option>
+                  <option value="faculty">Faculty — ₹2,599</option>
                 </select>
               </label>
               {errors.ticketType && <span className="field-error">{errors.ticketType}</span>}
