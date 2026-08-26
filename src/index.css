@@ -1,6 +1,15 @@
 /*
 Modified by Abdul Malik (@abdulmalik812)
 */
+
+/* ── Venue description: clamp to 3 lines on homepage only ── */
+.homepage-wrapper .venue-panel-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 :root {
   --red: #E62B1E;
   --white: #F5F0EA;
@@ -369,6 +378,88 @@ nav {
   margin-top: 44px;
   opacity: 0;
   animation: fadeUp 0.8s ease 1.45s forwards;
+}
+
+/* ── Global shared button base ── */
+.btn-primary,
+.btn-outline {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding: 13px 32px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
+  line-height: 1;
+}
+
+/* ── Solid red — primary action ── */
+.btn-primary {
+  background: var(--red);
+  color: var(--white);
+  border-color: var(--red);
+  box-shadow: 0 4px 20px rgba(230, 43, 30, 0.30);
+}
+
+.btn-primary:hover {
+  background: #c9241a;
+  border-color: #c9241a;
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(230, 43, 30, 0.45);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.97);
+  transition: none;
+  box-shadow: none;
+}
+
+/* ── Ghost outline — secondary action ── */
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.btn-outline:hover {
+  border-color: var(--red);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.btn-outline:hover::before {
+  transform: scaleX(1);
+}
+
+.btn-outline:active {
+  transform: translateY(0) scale(0.97);
+  border-color: var(--red);
+  background: var(--red);
+  transition: none;
+}
+
+.btn-outline:active::before {
+  transform: scaleX(1);
+  transition: none;
 }
 
 /* ── Unified Hero CTA button ── */
